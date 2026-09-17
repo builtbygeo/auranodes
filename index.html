@@ -156,19 +156,21 @@
         </a>
       </div>
 
-      <!-- Right Actions: Network, Wallet & Twitter -->
+      <!-- Right Actions: Contract Explorer, OpenSea Mint & Twitter -->
       <div class="flex items-center gap-2.5 sm:gap-3">
-        <!-- Network Badge / Switch -->
-        <button id="header-network-btn" onclick="switchInkNetwork()" class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-ink-600/20 border border-ink-500/30 text-ink-300 font-mono text-xs hover:border-ink-400/50 transition-colors">
-          <span id="header-network-dot" class="w-2 h-2 rounded-full bg-emerald-400"></span>
-          <span id="header-network-text">Ink 57073</span>
-        </button>
+        <!-- Contract Explorer Badge -->
+        <a href="https://explorer.inkonchain.com/address/0x98716e4f6be7abc8f14612bbb9c653bfe4e8cf51" target="_blank" rel="noopener noreferrer" class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-ink-600/20 border border-ink-500/30 text-ink-300 font-mono text-xs hover:border-ink-400/50 hover:text-white transition-colors" title="View Contract on Ink Explorer">
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span>0x9871...cf51</span>
+          <i data-lucide="external-link" class="w-3 h-3 text-ink-400"></i>
+        </a>
 
-        <!-- Connect Wallet Header Button -->
-        <button id="header-connect-btn" onclick="handleWalletAction()" class="flex items-center gap-2 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-xl bg-gradient-to-r from-ink-500 to-ink-400 hover:from-ink-400 hover:to-ink-300 text-white font-semibold text-xs transition-all shadow-md hover:scale-105 active:scale-95 font-mono">
-          <i data-lucide="wallet" class="w-3.5 h-3.5"></i>
-          <span id="header-wallet-label">Connect</span>
-        </button>
+        <!-- OpenSea CTA Header Button -->
+        <a href="https://opensea.io/collection/auranodes" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-xl bg-gradient-to-r from-ink-500 to-ink-400 hover:from-ink-400 hover:to-ink-300 text-white font-semibold text-xs transition-all shadow-md hover:scale-105 active:scale-95 font-mono">
+          <i data-lucide="sparkles" class="w-3.5 h-3.5 text-ink-cyan"></i>
+          <span>Mint on OpenSea</span>
+          <i data-lucide="arrow-up-right" class="w-3 h-3 text-white/80"></i>
+        </a>
 
         <a href="https://twitter.com/inkednodes" target="_blank" rel="noopener noreferrer"
            class="flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl bg-white text-black font-semibold text-xs hover:bg-gray-200 transition-all shadow-md hover:scale-105 active:scale-95">
@@ -250,9 +252,9 @@
                 <i data-lucide="zap" class="w-4 h-4 text-ink-cyan"></i>
                 <h3 class="font-display font-bold text-sm uppercase tracking-wider text-white">Mint Terminal</h3>
               </div>
-              <span id="mint-phase-pill" class="px-2.5 py-1 rounded-full bg-ink-500/15 border border-ink-500/30 text-ink-300 font-mono text-[11px] flex items-center gap-1.5">
-                <span id="mint-phase-dot" class="w-1.5 h-1.5 rounded-full bg-ink-cyan animate-pulse"></span>
-                <span id="mint-phase-text">Whitelist Phase (24h)</span>
+              <span class="px-2.5 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-300 font-mono text-[11px] flex items-center gap-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span>OpenSea SeaDrop Active</span>
               </span>
             </div>
 
@@ -260,80 +262,59 @@
             <div class="mb-4">
               <div class="flex justify-between items-center text-xs font-mono mb-1.5">
                 <span class="text-gray-400">Total Inscribed</span>
-                <span class="text-white font-bold"><span id="live-supply">0</span> / 4,096</span>
+                <span class="text-white font-bold"><span id="live-supply">877</span> / 4,096</span>
               </div>
               <div class="w-full h-2 rounded-full bg-black/60 overflow-hidden border border-white/10 relative">
-                <div id="supply-bar" class="h-full bg-gradient-to-r from-ink-500 via-ink-400 to-ink-cyan transition-all duration-700" style="width: 0%"></div>
+                <div id="supply-bar" class="h-full bg-gradient-to-r from-ink-500 via-ink-400 to-ink-cyan transition-all duration-700" style="width: 21.4%"></div>
               </div>
             </div>
 
-            <!-- Dynamic Eligibility Card -->
-            <div id="eligibility-box" class="p-3.5 rounded-2xl bg-black/40 border border-white/10 mb-4 flex flex-col gap-2 font-mono text-xs">
-              <div class="flex justify-between items-center">
-                <span class="text-gray-400">Eligibility</span>
-                <span id="user-status-tag" class="text-gray-300 font-semibold flex items-center gap-1">
-                  <span>Connect Wallet</span>
+            <!-- Dynamic Pricing & Stages Breakdown Box -->
+            <div class="p-4 rounded-2xl bg-black/40 border border-white/10 mb-4 flex flex-col gap-2.5 font-mono text-xs">
+              <div class="flex justify-between items-center pb-2 border-b border-white/[0.08]">
+                <span class="text-gray-400">Mint Stages</span>
+                <span class="text-ink-cyan font-bold flex items-center gap-1">
+                  <i data-lucide="layers" class="w-3.5 h-3.5"></i> SeaDrop Multi-Stage
                 </span>
               </div>
               <div class="flex justify-between items-center">
-                <span class="text-gray-400">Price</span>
-                <span id="display-price" class="text-ink-300 font-bold">0.001 ETH</span>
+                <span class="text-gray-300 flex items-center gap-1.5">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span> LifeNodes Tier:
+                </span>
+                <span class="text-emerald-400 font-bold">0.000777 ETH</span>
               </div>
               <div class="flex justify-between items-center">
-                <span class="text-gray-400">Wallet Minted</span>
-                <span id="display-cap" class="text-white">0 / 10 max</span>
+                <span class="text-gray-300 flex items-center gap-1.5">
+                  <span class="w-1.5 h-1.5 rounded-full bg-ink-400"></span> Allowlist Tier:
+                </span>
+                <span class="text-ink-300 font-bold">0.001 ETH</span>
               </div>
-              <div id="wl-wait-banner" class="hidden mt-1 p-2 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-300 text-[11px] leading-snug">
-                <i data-lucide="clock" class="w-3.5 h-3.5 inline mr-1 -mt-0.5"></i>
-                Not on WL. Public opens after 24h.
-              </div>
-            </div>
-
-            <!-- Quantity Stepper & Price Calculation -->
-            <div class="flex items-center gap-3 mb-4">
-              <div class="flex items-center bg-black/50 border border-white/10 rounded-xl p-1 font-mono">
-                <button id="btn-dec" onclick="adjustQty(-1)" class="w-8 h-8 rounded-lg bg-white/5 hover:bg-white/15 text-white flex items-center justify-center transition-colors disabled:opacity-30 disabled:cursor-not-allowed">
-                  -
-                </button>
-                <input id="mint-qty-input" type="number" min="1" max="10" value="1" readonly class="w-12 text-center bg-transparent text-white font-bold text-sm focus:outline-none">
-                <button id="btn-inc" onclick="adjustQty(1)" class="w-8 h-8 rounded-lg bg-white/5 hover:bg-white/15 text-white flex items-center justify-center transition-colors disabled:opacity-30 disabled:cursor-not-allowed">
-                  +
-                </button>
-                <button id="btn-max" onclick="setMaxQty()" class="px-2.5 py-1 text-[10px] font-bold text-ink-300 hover:text-white uppercase transition-colors">
-                  MAX
-                </button>
-              </div>
-
-              <div class="flex-1 flex flex-col items-end font-mono">
-                <span class="text-[10px] uppercase text-gray-400">Total Value</span>
-                <span id="total-eth" class="text-lg font-bold text-gradient-ink">0.001 ETH</span>
+              <div class="flex justify-between items-center">
+                <span class="text-gray-300 flex items-center gap-1.5">
+                  <span class="w-1.5 h-1.5 rounded-full bg-white"></span> Public Sale:
+                </span>
+                <span class="text-white font-bold">0.00222 ETH (Max 100)</span>
               </div>
             </div>
 
-            <!-- Primary Mint CTA Button -->
-            <button id="main-mint-btn" onclick="handleMintClick()" class="w-full py-3.5 px-4 rounded-xl bg-gradient-to-r from-ink-500 to-ink-400 hover:from-ink-400 hover:to-ink-300 text-white font-display font-bold text-sm transition-all shadow-lg hover:shadow-ink-glow hover:scale-[1.01] active:scale-[0.99] disabled:opacity-40 disabled:hover:scale-100 disabled:cursor-not-allowed flex items-center justify-center gap-2">
-              <i data-lucide="sparkles" class="w-4 h-4"></i>
-              <span id="mint-btn-label">Connect Ink Wallet</span>
-            </button>
-
-            <!-- Feedback Toast -->
-            <div id="tx-toast" class="hidden mt-3 p-2.5 rounded-xl text-xs font-mono flex items-center gap-2">
-              <span id="tx-toast-icon"></span>
-              <span id="tx-toast-msg" class="flex-1 truncate"></span>
-              <a id="tx-toast-link" href="#" target="_blank" rel="noopener noreferrer" class="hidden text-ink-cyan underline ml-1">View Tx</a>
-            </div>
+            <!-- Primary Mint CTA Button to OpenSea -->
+            <a id="main-mint-btn" href="https://opensea.io/collection/auranodes" target="_blank" rel="noopener noreferrer" class="w-full py-4 px-4 rounded-xl bg-gradient-to-r from-ink-500 via-ink-400 to-ink-500 hover:from-ink-400 hover:to-ink-300 text-white font-display font-bold text-base transition-all shadow-lg hover:shadow-ink-glow hover:scale-[1.01] active:scale-[0.99] flex items-center justify-center gap-2 group">
+              <i data-lucide="sparkles" class="w-4 h-4 text-ink-cyan group-hover:rotate-12 transition-transform"></i>
+              <span>Mint on OpenSea</span>
+              <i data-lucide="arrow-up-right" class="w-4 h-4 text-white/80 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i>
+            </a>
           </div>
 
           <div>
-            <!-- Mainnet Contract Address Link Placeholder -->
-            <div class="mt-3 pt-3 border-t border-white/[0.08] flex items-center justify-between text-[11px] font-mono text-gray-400">
-              <span class="flex items-center gap-1">
+            <!-- Mainnet Contract Address Link -->
+            <div class="mt-4 pt-3 border-t border-white/[0.08] flex items-center justify-between text-[11px] font-mono">
+              <span class="flex items-center gap-1 text-gray-400">
                 <i data-lucide="file-code" class="w-3.5 h-3.5 text-ink-400"></i>
                 Contract:
               </span>
-              <a id="contract-explorer-link" href="https://explorer.inkonchain.com" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-ink-300 transition-colors flex items-center gap-1">
-                <span id="contract-display-address">Pending Mainnet Deploy</span>
-                <i data-lucide="external-link" class="w-3 h-3 text-gray-500"></i>
+              <a id="contract-explorer-link" href="https://explorer.inkonchain.com/address/0x98716e4f6be7abc8f14612bbb9c653bfe4e8cf51" target="_blank" rel="noopener noreferrer" class="text-ink-300 hover:text-white transition-colors flex items-center gap-1 font-semibold">
+                <span id="contract-display-address">0x98716e4f6be7abc8f14612bbb9c653bfe4e8cf51</span>
+                <i data-lucide="external-link" class="w-3 h-3 text-gray-400"></i>
               </a>
             </div>
 
@@ -663,495 +644,40 @@
     lucide.createIcons();
   </script>
 
-  <!-- WEB3 / INK CHAIN INTEGRATION SCRIPT -->
+  <!-- INK CHAIN & LIVE SUPPLY INTEGRATION -->
   <script>
-    // Ink Network Config
-    const INK_CHAIN_ID_DEC = 57073;
-    const INK_CHAIN_ID_HEX = "0xdee1";
-    const INK_CHAIN_PARAMS = {
-      chainId: INK_CHAIN_ID_HEX,
-      chainName: "Ink",
-      nativeCurrency: { name: "Ether", symbol: "ETH", decimals: 18 },
-      rpcUrls: ["https://rpc-gel.inkonchain.com", "https://rpc-qnd.inkonchain.com"],
-      blockExplorerUrls: ["https://explorer.inkonchain.com"]
-    };
+    const CONTRACT_ADDRESS = "0x98716e4f6be7abc8f14612bbb9c653bfe4e8cf51";
+    const INK_RPC_URL = "https://rpc-gel.inkonchain.com";
 
-    // Contract Config (Placeholder now, updated upon mainnet deploy)
-    const CONTRACT_ADDRESS = "0x0000000000000000000000000000000000000000";
-    const AURA_ABI = [
-      "function paused() view returns (bool)",
-      "function publicEnabled() view returns (bool)",
-      "function wlPrice() view returns (uint256)",
-      "function publicPrice() view returns (uint256)",
-      "function wlMaxPerWallet() view returns (uint256)",
-      "function publicMaxPerWallet() view returns (uint256)",
-      "function totalSupply() view returns (uint256)",
-      "function MAX_SUPPLY() view returns (uint256)",
-      "function wlMinted(address) view returns (uint256)",
-      "function publicMinted(address) view returns (uint256)",
-      "function whitelistMint(uint256 qty, bytes32[] calldata proof) payable",
-      "function mint(uint256 qty) payable"
-    ];
-
-    // State Variables
-    let web3Provider = null;
-    let signer = null;
-    let userAddress = null;
-    let userChainId = null;
-    let proofsData = null;
-    let selectedQty = 1;
-
-    let contractState = {
-      paused: false,
-      publicEnabled: false,
-      wlPrice: 1000000000000000n, // 0.001 ETH
-      publicPrice: 2000000000000000n, // 0.002 ETH
-      wlMaxPerWallet: 10,
-      publicMaxPerWallet: 25,
-      totalSupply: 0,
-      maxSupply: 4096,
-      wlMinted: 0,
-      publicMinted: 0
-    };
-
-    let userProof = null;
-    let isWhitelisted = false;
-    let isMinting = false;
-
-    // Load static proofs.json (lowercase lookup)
-    async function loadProofs() {
-      if (proofsData) return proofsData;
+    async function fetchLiveSupply() {
       try {
-        const res = await fetch('./proofs.json');
-        if (!res.ok) throw new Error("Failed to load proofs.json");
-        proofsData = await res.json();
-        return proofsData;
-      } catch (err) {
-        console.warn("Could not load proofs.json:", err);
-        return {};
-      }
-    }
-
-    // Initialize Web3 / Watchers
-    async function initWeb3() {
-      loadProofs();
-      updateContractDisplay();
-      
-      if (window.ethereum) {
-        web3Provider = new ethers.BrowserProvider(window.ethereum);
+        const provider = new ethers.JsonRpcProvider(INK_RPC_URL);
+        const contract = new ethers.Contract(
+          CONTRACT_ADDRESS,
+          ["function totalSupply() view returns (uint256)"],
+          provider
+        );
+        const total = await contract.totalSupply();
+        const supplyNum = Number(total);
         
-        window.ethereum.on('accountsChanged', (accounts) => {
-          if (accounts.length === 0) {
-            disconnectWallet();
-          } else {
-            handleAccountChanged(accounts[0]);
-          }
-        });
-
-        window.ethereum.on('chainChanged', (chainIdHex) => {
-          userChainId = parseInt(chainIdHex, 16);
-          updateUI();
-          if (userAddress) readOnChainState();
-        });
-
-        try {
-          const accounts = await window.ethereum.request({ method: 'eth_accounts' });
-          if (accounts.length > 0) {
-            handleAccountChanged(accounts[0]);
-          }
-        } catch (e) {
-          console.log("No pre-existing connection:", e);
-        }
-      }
-      updateUI();
-    }
-
-    function updateContractDisplay() {
-      const displayElem = document.getElementById('contract-display-address');
-      const linkElem = document.getElementById('contract-explorer-link');
-      if (CONTRACT_ADDRESS && CONTRACT_ADDRESS !== "0x0000000000000000000000000000000000000000") {
-        const shortAddr = CONTRACT_ADDRESS.slice(0, 6) + "..." + CONTRACT_ADDRESS.slice(-4);
-        displayElem.textContent = shortAddr;
-        linkElem.href = `https://explorer.inkonchain.com/address/${CONTRACT_ADDRESS}`;
-      } else {
-        displayElem.textContent = "Pending Mainnet Deploy";
-        linkElem.href = "https://explorer.inkonchain.com";
-      }
-    }
-
-    async function handleWalletAction() {
-      if (!window.ethereum) {
-        showToast("No Web3 wallet found. Please install MetaMask or Rabby.", "error");
-        return;
-      }
-      if (!userAddress) {
-        await connectWallet();
-      } else if (userChainId !== INK_CHAIN_ID_DEC) {
-        await switchInkNetwork();
-      }
-    }
-
-    async function connectWallet() {
-      try {
-        const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
-        if (accounts.length > 0) {
-          await handleAccountChanged(accounts[0]);
+        const supplyElem = document.getElementById('live-supply');
+        const supplyBar = document.getElementById('supply-bar');
+        
+        if (supplyElem) supplyElem.textContent = supplyNum.toLocaleString();
+        if (supplyBar) {
+          const pct = Math.min(100, Math.max(5, (supplyNum / 4096) * 100));
+          supplyBar.style.width = pct + "%";
         }
       } catch (err) {
-        console.error("Connect error:", err);
-        showToast(err.message || "Failed to connect wallet", "error");
+        console.warn("Supply fetch error:", err);
       }
     }
 
-    function disconnectWallet() {
-      userAddress = null;
-      signer = null;
-      userProof = null;
-      isWhitelisted = false;
-      contractState.wlMinted = 0;
-      contractState.publicMinted = 0;
-      updateUI();
-    }
-
-    async function handleAccountChanged(rawAddr) {
-      userAddress = rawAddr.toLowerCase();
-      signer = await web3Provider.getSigner();
-      const network = await web3Provider.getNetwork();
-      userChainId = Number(network.chainId);
-
-      // Check Proofs
-      const proofs = await loadProofs();
-      userProof = proofs[userAddress] || null;
-      isWhitelisted = !!userProof;
-
-      await readOnChainState();
-      updateUI();
-    }
-
-    async function switchInkNetwork() {
-      if (!window.ethereum) return;
-      try {
-        await window.ethereum.request({
-          method: 'wallet_switchEthereumChain',
-          params: [{ chainId: INK_CHAIN_ID_HEX }]
-        });
-      } catch (switchError) {
-        if (switchError.code === 4902) {
-          try {
-            await window.ethereum.request({
-              method: 'wallet_addEthereumChain',
-              params: [INK_CHAIN_PARAMS]
-            });
-          } catch (addError) {
-            console.error("Failed to add Ink network:", addError);
-            showToast("Failed to add Ink network to wallet.", "error");
-          }
-        } else {
-          console.error("Failed to switch network:", switchError);
-          showToast("Failed to switch to Ink network.", "error");
-        }
-      }
-    }
-
-    async function readOnChainState() {
-      if (!CONTRACT_ADDRESS || CONTRACT_ADDRESS === "0x0000000000000000000000000000000000000000") {
-        return;
-      }
-      try {
-        const contract = new ethers.Contract(CONTRACT_ADDRESS, AURA_ABI, web3Provider);
-        const [
-          isPaused,
-          isPublic,
-          wlP,
-          pubP,
-          wlMax,
-          pubMax,
-          supply
-        ] = await Promise.all([
-          contract.paused().catch(() => false),
-          contract.publicEnabled().catch(() => false),
-          contract.wlPrice().catch(() => 1000000000000000n),
-          contract.publicPrice().catch(() => 2000000000000000n),
-          contract.wlMaxPerWallet().catch(() => 10n),
-          contract.publicMaxPerWallet().catch(() => 25n),
-          contract.totalSupply().catch(() => 0n)
-        ]);
-
-        contractState.paused = isPaused;
-        contractState.publicEnabled = isPublic;
-        contractState.wlPrice = wlP;
-        contractState.publicPrice = pubP;
-        contractState.wlMaxPerWallet = Number(wlMax);
-        contractState.publicMaxPerWallet = Number(pubMax);
-        contractState.totalSupply = Number(supply);
-
-        if (userAddress) {
-          const [wlM, pubM] = await Promise.all([
-            contract.wlMinted(userAddress).catch(() => 0n),
-            contract.publicMinted(userAddress).catch(() => 0n)
-          ]);
-          contractState.wlMinted = Number(wlM);
-          contractState.publicMinted = Number(pubM);
-        }
-      } catch (err) {
-        console.warn("Could not read on-chain contract state:", err);
-      }
-      updateUI();
-    }
-
-    function updateUI() {
-      // 1. Header Network Pill
-      const netDot = document.getElementById('header-network-dot');
-      const netText = document.getElementById('header-network-text');
-      const isInk = userChainId === INK_CHAIN_ID_DEC;
-
-      if (!userAddress) {
-        netDot.className = "w-2 h-2 rounded-full bg-emerald-400";
-        netText.textContent = "Ink 57073";
-      } else if (!isInk) {
-        netDot.className = "w-2 h-2 rounded-full bg-rose-500 animate-ping";
-        netText.textContent = "Switch to Ink";
-      } else {
-        netDot.className = "w-2 h-2 rounded-full bg-emerald-400";
-        netText.textContent = "Ink (Connected)";
-      }
-
-      // 2. Header Wallet Button
-      const headerBtn = document.getElementById('header-wallet-label');
-      if (userAddress) {
-        headerBtn.textContent = userAddress.slice(0, 6) + "..." + userAddress.slice(-4);
-      } else {
-        headerBtn.textContent = "Connect";
-      }
-
-      // 3. Supply bar
-      const supply = contractState.totalSupply;
-      document.getElementById('live-supply').textContent = supply.toLocaleString();
-      const pct = Math.min(100, (supply / contractState.maxSupply) * 100);
-      document.getElementById('supply-bar').style.width = pct + "%";
-
-      // 4. Phase Pill
-      const phasePillText = document.getElementById('mint-phase-text');
-      const phasePillDot = document.getElementById('mint-phase-dot');
-      if (contractState.paused) {
-        phasePillText.textContent = "Mint Paused";
-        phasePillDot.className = "w-1.5 h-1.5 rounded-full bg-amber-400";
-      } else if (contractState.publicEnabled) {
-        phasePillText.textContent = "Public Mint Active";
-        phasePillDot.className = "w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse";
-      } else {
-        phasePillText.textContent = "Whitelist Phase (24h)";
-        phasePillDot.className = "w-1.5 h-1.5 rounded-full bg-ink-cyan animate-pulse";
-      }
-
-      // 5. Eligibility & User Cap Calculations
-      const userTag = document.getElementById('user-status-tag');
-      const priceElem = document.getElementById('display-price');
-      const capElem = document.getElementById('display-cap');
-      const waitBanner = document.getElementById('wl-wait-banner');
-      const mintBtn = document.getElementById('main-mint-btn');
-      const mintLabel = document.getElementById('mint-btn-label');
-
-      let currentPriceWei = contractState.wlPrice;
-      let effectiveCap = contractState.wlMaxPerWallet;
-      let alreadyMinted = contractState.wlMinted;
-      let isEligible = false;
-      let disableMint = false;
-      let btnText = "Mint";
-
-      if (!userAddress) {
-        userTag.innerHTML = `<span class="text-gray-400">Not Connected</span>`;
-        priceElem.textContent = "0.001 ETH (WL) / 0.002 ETH (Public)";
-        capElem.textContent = "10 (WL) / 25 (Pub)";
-        waitBanner.classList.add('hidden');
-        mintBtn.disabled = false;
-        mintLabel.textContent = "Connect Ink Wallet";
-        updateTotalEth(currentPriceWei);
-        return;
-      }
-
-      if (!isInk) {
-        userTag.innerHTML = `<span class="text-rose-400">Wrong Network</span>`;
-        waitBanner.classList.add('hidden');
-        mintBtn.disabled = false;
-        mintLabel.textContent = "Switch to Ink (57073)";
-        return;
-      }
-
-      if (isWhitelisted) {
-        isEligible = true;
-        effectiveCap = contractState.wlMaxPerWallet;
-        alreadyMinted = contractState.wlMinted;
-        currentPriceWei = contractState.wlPrice;
-        userTag.innerHTML = `<span class="text-ink-cyan flex items-center gap-1"><i data-lucide="check-circle" class="w-3.5 h-3.5"></i> Whitelisted</span>`;
-        priceElem.textContent = ethers.formatEther(currentPriceWei) + " ETH";
-        capElem.textContent = `${alreadyMinted} / ${effectiveCap} minted`;
-        waitBanner.classList.add('hidden');
-      } else if (contractState.publicEnabled) {
-        isEligible = true;
-        effectiveCap = contractState.publicMaxPerWallet;
-        alreadyMinted = contractState.publicMinted;
-        currentPriceWei = contractState.publicPrice;
-        userTag.innerHTML = `<span class="text-emerald-400 flex items-center gap-1"><i data-lucide="globe" class="w-3.5 h-3.5"></i> Public Eligible</span>`;
-        priceElem.textContent = ethers.formatEther(currentPriceWei) + " ETH";
-        capElem.textContent = `${alreadyMinted} / ${effectiveCap} minted`;
-        waitBanner.classList.add('hidden');
-      } else {
-        isEligible = false;
-        effectiveCap = 0;
-        alreadyMinted = 0;
-        currentPriceWei = contractState.wlPrice;
-        userTag.innerHTML = `<span class="text-amber-300">Not Whitelisted</span>`;
-        priceElem.textContent = "0.001 ETH (WL)";
-        capElem.textContent = "WL Cap: 10";
-        waitBanner.classList.remove('hidden');
-        disableMint = true;
-        btnText = "Not on WL. Public opens in 24h";
-      }
-
-      const remainingForWallet = Math.max(0, effectiveCap - alreadyMinted);
-      const remainingSupply = Math.max(0, contractState.maxSupply - contractState.totalSupply);
-      const maxAllowed = Math.min(remainingForWallet, remainingSupply);
-
-      if (contractState.paused) {
-        disableMint = true;
-        btnText = "Mint Paused";
-      } else if (remainingSupply <= 0) {
-        disableMint = true;
-        btnText = "Sold Out (4,096 / 4,096)";
-      } else if (isEligible && remainingForWallet <= 0) {
-        disableMint = true;
-        btnText = `Cap Reached (${alreadyMinted}/${effectiveCap})`;
-      } else if (isEligible) {
-        if (selectedQty > maxAllowed && maxAllowed > 0) {
-          selectedQty = maxAllowed;
-          document.getElementById('mint-qty-input').value = selectedQty;
-        }
-        btnText = `Mint ${selectedQty} AuraNode${selectedQty > 1 ? 's' : ''}`;
-      }
-
-      mintBtn.disabled = disableMint;
-      mintLabel.textContent = btnText;
-
-      updateTotalEth(currentPriceWei);
+    window.addEventListener('DOMContentLoaded', () => {
+      fetchLiveSupply();
+      setInterval(fetchLiveSupply, 15000);
       lucide.createIcons();
-    }
-
-    function adjustQty(delta) {
-      let maxQty = 10;
-      if (isWhitelisted) {
-        maxQty = Math.max(1, contractState.wlMaxPerWallet - contractState.wlMinted);
-      } else if (contractState.publicEnabled) {
-        maxQty = Math.max(1, contractState.publicMaxPerWallet - contractState.publicMinted);
-      }
-      selectedQty = Math.min(Math.max(1, selectedQty + delta), maxQty);
-      document.getElementById('mint-qty-input').value = selectedQty;
-      const priceWei = (isWhitelisted || !contractState.publicEnabled) ? contractState.wlPrice : contractState.publicPrice;
-      updateTotalEth(priceWei);
-    }
-
-    function setMaxQty() {
-      let maxQty = 10;
-      if (isWhitelisted) {
-        maxQty = Math.max(1, contractState.wlMaxPerWallet - contractState.wlMinted);
-      } else if (contractState.publicEnabled) {
-        maxQty = Math.max(1, contractState.publicMaxPerWallet - contractState.publicMinted);
-      }
-      selectedQty = maxQty;
-      document.getElementById('mint-qty-input').value = selectedQty;
-      const priceWei = (isWhitelisted || !contractState.publicEnabled) ? contractState.wlPrice : contractState.publicPrice;
-      updateTotalEth(priceWei);
-    }
-
-    function updateTotalEth(priceWei) {
-      const totalWei = priceWei * BigInt(selectedQty);
-      document.getElementById('total-eth').textContent = ethers.formatEther(totalWei) + " ETH";
-    }
-
-    async function handleMintClick() {
-      if (!window.ethereum) {
-        showToast("Please install an Ethereum wallet like MetaMask or Rabby.", "error");
-        return;
-      }
-      if (!userAddress) {
-        await connectWallet();
-        return;
-      }
-      if (userChainId !== INK_CHAIN_ID_DEC) {
-        await switchInkNetwork();
-        return;
-      }
-
-      if (!CONTRACT_ADDRESS || CONTRACT_ADDRESS === "0x0000000000000000000000000000000000000000") {
-        showToast("Ink mainnet contract deployment pending. Minting will be activated upon launch!", "info");
-        return;
-      }
-
-      if (isMinting) return;
-      isMinting = true;
-      showToast("Preparing transaction on Ink...", "pending");
-
-      try {
-        const contract = new ethers.Contract(CONTRACT_ADDRESS, AURA_ABI, signer);
-        let tx;
-
-        if (isWhitelisted) {
-          const totalValue = contractState.wlPrice * BigInt(selectedQty);
-          tx = await contract.whitelistMint(selectedQty, userProof, { value: totalValue });
-        } else if (contractState.publicEnabled) {
-          const totalValue = contractState.publicPrice * BigInt(selectedQty);
-          tx = await contract.mint(selectedQty, { value: totalValue });
-        } else {
-          showToast("Not on WL. Public opens after 24h.", "error");
-          isMinting = false;
-          return;
-        }
-
-        showToast("Transaction submitted! Waiting for confirmation...", "pending", tx.hash);
-        await tx.wait(1);
-        showToast("Mint successful! Welcome to the AuraNodes collective.", "success", tx.hash);
-        await readOnChainState();
-      } catch (err) {
-        console.error("Mint execution failed:", err);
-        const reason = err.reason || err.data?.message || err.message || "Transaction failed";
-        showToast(reason.slice(0, 80), "error");
-      } finally {
-        isMinting = false;
-      }
-    }
-
-    function showToast(msg, type = "info", txHash = null) {
-      const toast = document.getElementById('tx-toast');
-      const msgElem = document.getElementById('tx-toast-msg');
-      const iconElem = document.getElementById('tx-toast-icon');
-      const linkElem = document.getElementById('tx-toast-link');
-
-      toast.classList.remove('hidden', 'bg-emerald-500/20', 'border-emerald-500/40', 'text-emerald-300', 'bg-rose-500/20', 'border-rose-500/40', 'text-rose-300', 'bg-ink-500/20', 'border-ink-500/40', 'text-ink-300');
-
-      if (type === "success") {
-        toast.classList.add('bg-emerald-500/20', 'border', 'border-emerald-500/40', 'text-emerald-300');
-        iconElem.innerHTML = `<i data-lucide="check" class="w-4 h-4"></i>`;
-      } else if (type === "error") {
-        toast.classList.add('bg-rose-500/20', 'border', 'border-rose-500/40', 'text-rose-300');
-        iconElem.innerHTML = `<i data-lucide="alert-circle" class="w-4 h-4"></i>`;
-      } else {
-        toast.classList.add('bg-ink-500/20', 'border', 'border-ink-500/40', 'text-ink-300');
-        iconElem.innerHTML = `<i data-lucide="loader-2" class="w-4 h-4 animate-spin"></i>`;
-      }
-
-      msgElem.textContent = msg;
-
-      if (txHash) {
-        linkElem.href = `https://explorer.inkonchain.com/tx/${txHash}`;
-        linkElem.classList.remove('hidden');
-      } else {
-        linkElem.classList.add('hidden');
-      }
-
-      lucide.createIcons();
-    }
-
-    window.addEventListener('DOMContentLoaded', initWeb3);
+    });
   </script>
 </body>
 </html>
