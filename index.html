@@ -96,11 +96,9 @@
     .animate-pulse-glow {
       animation: pulseGlow 5s ease-in-out infinite;
     }
-    /* Lock viewport on desktop, allow scroll on constrained heights/mobile */
-    @media (min-width: 1024px) and (min-height: 820px) {
-      body {
-        overflow: hidden;
-      }
+    /* Smooth natural scrolling */
+    html {
+      scroll-behavior: smooth;
     }
     /* Custom scrollbar when needed */
     ::-webkit-scrollbar {
@@ -146,8 +144,13 @@
         </div>
       </div>
 
-      <!-- Center: Ancestry / Inspiration Pill -->
-      <div class="hidden md:flex items-center">
+      <!-- Center: Navigation Pills -->
+      <div class="hidden md:flex items-center gap-2.5">
+        <a href="#shape-codex" 
+           class="group flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-ink-500/15 hover:bg-ink-500/25 border border-ink-500/30 hover:border-ink-400/50 transition-all text-xs font-medium text-ink-300 hover:text-white shadow-sm">
+          <i data-lucide="sparkles" class="w-3.5 h-3.5 text-ink-cyan group-hover:rotate-12 transition-transform"></i>
+          <span>Shape Codex (26)</span>
+        </a>
         <a href="https://opensea.io/collection/lifenodes" target="_blank" rel="noopener noreferrer" 
            class="group flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.04] hover:bg-white/[0.08] border border-white/10 hover:border-ink-400/40 transition-all text-xs font-medium text-gray-300 hover:text-white">
           <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
@@ -356,11 +359,15 @@
               </span>
             </div>
 
-            <!-- Dynamic Trait Tag -->
+            <!-- Dynamic Trait Tag & Quick Share -->
             <div class="flex items-center gap-2">
-              <span id="hud-motion" class="px-2.5 py-1 rounded-lg bg-white/5 border border-white/10 text-gray-300 font-mono text-xs">
+              <span id="hud-motion" class="hidden sm:inline-block px-2.5 py-1 rounded-lg bg-white/5 border border-white/10 text-gray-300 font-mono text-xs">
                 Pulse Dynamic · 6.0s
               </span>
+              <button onclick="openShareModalForCurrentHero()" class="px-2.5 py-1 rounded-lg bg-gradient-to-r from-ink-500/25 to-ink-cyan/25 hover:from-ink-500/40 hover:to-ink-cyan/40 border border-ink-400/40 text-white font-mono text-xs font-semibold flex items-center gap-1.5 transition-all shadow-sm hover:scale-105 active:scale-95" title="Flex on X">
+                <i data-lucide="twitter" class="w-3.5 h-3.5 text-ink-cyan"></i>
+                <span>Flex on X</span>
+              </button>
             </div>
           </div>
 
@@ -466,6 +473,142 @@
 
     </div>
   </main>
+
+  <!-- SHAPE CODEX & 1-CLICK X SHARING SECTION -->
+  <section id="shape-codex" class="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 border-t border-white/[0.08]">
+    
+    <!-- Section Header -->
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+      <div>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-ink-500/15 border border-ink-500/30 text-ink-300 text-xs font-mono mb-3 tracking-wide">
+          <i data-lucide="sparkles" class="w-3.5 h-3.5 text-ink-cyan"></i>
+          <span>THE HARMONIC SHAPE CODEX · 26 ARCHETYPES</span>
+        </div>
+        <h2 class="font-display text-3xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight">
+          Explore Every Shape. <span class="text-gradient-ink">Flex on X.</span>
+        </h2>
+        <p class="text-gray-300 text-sm sm:text-base max-w-2xl mt-2 font-normal">
+          While metadata remains unrevealed on OpenSea, browse all 26 distinct generative geometries below. Pick your favorite specimen, download the 60 FPS loop, and post directly to X in 2 clicks.
+        </p>
+      </div>
+
+      <!-- Quick Randomize Button -->
+      <div class="flex items-center gap-2.5 flex-shrink-0">
+        <button onclick="randomizeAura()" class="px-4 py-2.5 rounded-xl bg-gradient-to-r from-ink-500 to-ink-400 hover:from-ink-400 hover:to-ink-300 text-white font-display font-bold text-xs sm:text-sm flex items-center gap-2 transition-all shadow-md hover:scale-105 active:scale-95">
+          <i data-lucide="dices" class="w-4 h-4 text-ink-cyan"></i>
+          <span>Surprise Me / Random Aura</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Filter & Search Controls -->
+    <div class="glass-panel rounded-2xl p-3 sm:p-4 mb-8 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <!-- Search Input -->
+      <div class="relative w-full sm:w-72">
+        <i data-lucide="search" class="w-4 h-4 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2"></i>
+        <input id="codex-search" type="text" oninput="handleSearch(this.value)" placeholder="Search shape (Kraken, Ink, Vortex...)" 
+               class="w-full bg-black/50 border border-white/10 rounded-xl pl-9 pr-3 py-2 text-xs font-mono text-white placeholder-gray-500 focus:outline-none focus:border-ink-400 transition-colors">
+      </div>
+
+      <!-- Tier Filters -->
+      <div class="flex items-center gap-1.5 flex-wrap w-full sm:w-auto font-mono text-xs">
+        <button onclick="filterCodex('all')" class="codex-filter active px-3 py-1.5 rounded-lg bg-ink-500 text-white font-semibold transition-all">All (26)</button>
+        <button onclick="filterCodex('Ultra-Rare')" class="codex-filter px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-ink-300 hover:text-white transition-all">Ultra-Rare</button>
+        <button onclick="filterCodex('Prime')" class="codex-filter px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-gray-300 hover:text-white transition-all">Prime</button>
+        <button onclick="filterCodex('Super-Rare')" class="codex-filter px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-gray-300 hover:text-white transition-all">Super-Rare</button>
+        <button onclick="filterCodex('Select')" class="codex-filter px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-gray-300 hover:text-white transition-all">Select</button>
+        <button onclick="filterCodex('Standard')" class="codex-filter px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-gray-300 hover:text-white transition-all">Standard</button>
+      </div>
+    </div>
+
+    <!-- Shapes Grid -->
+    <div id="codex-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5">
+      <!-- Dynamically injected via JavaScript -->
+    </div>
+  </section>
+
+  <!-- SHARE ON X MODAL -->
+  <div id="share-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-md opacity-0 pointer-events-none transition-opacity duration-300">
+    <div class="relative w-full max-w-2xl glass-panel rounded-3xl p-6 sm:p-8 border border-ink-500/40 shadow-2xl overflow-hidden flex flex-col gap-6">
+      
+      <!-- Close Button -->
+      <button onclick="closeShareModal()" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-gray-300 hover:text-white flex items-center justify-center transition-colors">
+        <i data-lucide="x" class="w-4 h-4"></i>
+      </button>
+
+      <!-- Modal Header -->
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-ink-500 to-ink-400 flex items-center justify-center text-white shadow-ink-pill">
+          <i data-lucide="twitter" class="w-5 h-5 fill-current"></i>
+        </div>
+        <div>
+          <h3 class="font-display text-xl font-bold text-white flex items-center gap-2">
+            <span>Flex on X:</span>
+            <span id="modal-shape-title" class="text-gradient-ink">Kraken</span>
+          </h3>
+          <p class="text-gray-400 text-xs font-mono">Download the 60 FPS video & compose your tweet in 2 clicks</p>
+        </div>
+      </div>
+
+      <!-- Preview + Text Split -->
+      <div class="grid grid-cols-1 sm:grid-cols-12 gap-5 items-center">
+        <!-- Video Loop Preview (5 cols) -->
+        <div class="sm:col-span-5 aspect-square rounded-2xl overflow-hidden bg-black relative border border-white/10 shadow-inner">
+          <video id="modal-video" autoplay loop muted playsinline class="w-full h-full object-cover"></video>
+          <div class="absolute bottom-2 left-2 right-2 flex justify-between text-[10px] font-mono text-gray-300 bg-black/60 backdrop-blur-md px-2 py-1 rounded-md">
+            <span id="modal-tier-badge" class="text-ink-cyan font-bold">Ultra-Rare</span>
+            <span>60 FPS</span>
+          </div>
+        </div>
+
+        <!-- Post Preview & Actions (7 cols) -->
+        <div class="sm:col-span-7 flex flex-col justify-between gap-4">
+          <div>
+            <span class="text-[11px] font-mono uppercase text-gray-400 block mb-1.5 flex items-center gap-1.5">
+              <i data-lucide="message-square" class="w-3.5 h-3.5 text-ink-400"></i>
+              Pre-Formatted Post Copy
+            </span>
+            <div id="modal-tweet-preview" class="p-3.5 rounded-xl bg-black/60 border border-white/10 text-xs font-mono text-gray-200 leading-relaxed select-all">
+              repeat after me @inkednodes = one more reason to bridge to @inkonchain<br><br>
+              <span class="text-ink-cyan">https://auranodes.ink</span>
+            </div>
+          </div>
+
+          <!-- Step-by-Step Instructions Card -->
+          <div class="p-3 rounded-xl bg-ink-500/10 border border-ink-500/30 text-[11px] font-mono text-gray-300 flex items-start gap-2">
+            <i data-lucide="info" class="w-4 h-4 text-ink-cyan flex-shrink-0 mt-0.5"></i>
+            <div>
+              <strong>How it works:</strong> Clicking the button downloads the 60 FPS video and opens the X composer with the text already filled in. Just drop your downloaded video in!
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="flex flex-col gap-2.5">
+            <button onclick="executeShareOnX()" class="w-full py-3 px-4 rounded-xl bg-gradient-to-r from-ink-500 via-ink-400 to-ink-500 hover:from-ink-400 hover:to-ink-300 text-white font-display font-bold text-sm transition-all shadow-lg hover:shadow-ink-glow hover:scale-[1.01] active:scale-[0.99] flex items-center justify-center gap-2">
+              <i data-lucide="download" class="w-4 h-4 text-ink-cyan"></i>
+              <span>Download Video & Compose on X ↗</span>
+            </button>
+
+            <div class="flex items-center gap-2">
+              <button onclick="copyTweetText()" class="flex-1 py-2 px-3 rounded-lg bg-white/5 hover:bg-white/15 border border-white/10 text-gray-300 hover:text-white font-mono text-xs transition-colors flex items-center justify-center gap-1.5">
+                <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+                <span id="btn-copy-text">Copy Text Only</span>
+              </button>
+
+              <a href="https://twitter.com/intent/follow?screen_name=inkednodes" target="_blank" rel="noopener noreferrer" 
+                 class="flex-1 py-2 px-3 rounded-lg bg-white/5 hover:bg-white/15 border border-white/10 text-gray-300 hover:text-white font-mono text-xs transition-colors flex items-center justify-center gap-1.5">
+                <i data-lucide="user-plus" class="w-3.5 h-3.5 text-ink-300"></i>
+                <span>Follow @inkednodes</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
 
   <!-- BOTTOM STATUS FOOTER -->
   <footer class="w-full z-40 px-4 sm:px-8 py-3 text-xs text-gray-400">
@@ -680,5 +823,212 @@
       lucide.createIcons();
     });
   </script>
+
+  <!-- SHAPE CODEX & SHARE SCRIPT -->
+  <script>
+    const SHAPES_DATA = [
+      {"shape":"ContourBands","id":1,"tier":"Standard","palette":"Ethereum","archetype":"Harmonic Resonance","motion":"Celestial Drift","mp4":"./assets/shapes/contourbands.mp4","png":"./assets/shapes/contourbands.png"},
+      {"shape":"Spiral","id":2,"tier":"Super Rare","palette":"Bitcoin","archetype":"Dimensional Vortex","motion":"Counter Spin","mp4":"./assets/shapes/spiral.mp4","png":"./assets/shapes/spiral.png"},
+      {"shape":"LissajousRing","id":3,"tier":"Super-Rare","palette":"Bitcoin","archetype":"Sacred Geometry","motion":"Disciplined Static","mp4":"./assets/shapes/lissajousring.mp4","png":"./assets/shapes/lissajousring.png"},
+      {"shape":"SuperHex","id":4,"tier":"Standard","palette":"Emerald","archetype":"Sacred Geometry","motion":"Disciplined Static","mp4":"./assets/shapes/superhex.mp4","png":"./assets/shapes/superhex.png"},
+      {"shape":"MoireBands","id":5,"tier":"Standard","palette":"Ethereum","archetype":"Cybernetic Grid","motion":"Pulse","mp4":"./assets/shapes/moirebands.mp4","png":"./assets/shapes/moirebands.png"},
+      {"shape":"QuantumMembrane","id":7,"tier":"Standard","palette":"Bitcoin","archetype":"Quantum Singularity","motion":"Quantum Dynamics","mp4":"./assets/shapes/quantummembrane.mp4","png":"./assets/shapes/quantummembrane.png"},
+      {"shape":"Portal","id":9,"tier":"Standard","palette":"Emerald","archetype":"Dimensional Vortex","motion":"Celestial Drift","mp4":"./assets/shapes/portal.mp4","png":"./assets/shapes/portal.png"},
+      {"shape":"Ink","id":10,"tier":"Ultra-Rare","palette":"Ink","archetype":"Sacred Geometry","motion":"Disciplined Static","mp4":"./assets/shapes/ink.mp4","png":"./assets/shapes/ink.png"},
+      {"shape":"CircuitMatrix","id":11,"tier":"Ultra-Rare Balanced","palette":"Ethereum","archetype":"Cybernetic Grid","motion":"Hyperfluid Wave","mp4":"./assets/shapes/circuitmatrix.mp4","png":"./assets/shapes/circuitmatrix.png"},
+      {"shape":"TorsionRibbon","id":12,"tier":"Super-Rare","palette":"Gold","archetype":"Dimensional Vortex","motion":"Mixed Synthesis","mp4":"./assets/shapes/torsionribbon.mp4","png":"./assets/shapes/torsionribbon.png"},
+      {"shape":"Circle","id":13,"tier":"Select","palette":"Pepe","archetype":"Harmonic Resonance","motion":"Celestial Drift","mp4":"./assets/shapes/circle.mp4","png":"./assets/shapes/circle.png"},
+      {"shape":"QuantumField","id":14,"tier":"Select","palette":"Emerald","archetype":"Quantum Singularity","motion":"Harmonic Ease","mp4":"./assets/shapes/quantumfield.mp4","png":"./assets/shapes/quantumfield.png"},
+      {"shape":"EnergySphere","id":15,"tier":"Standard","palette":"Pepe","archetype":"Quantum Singularity","motion":"Pulse","mp4":"./assets/shapes/energysphere.mp4","png":"./assets/shapes/energysphere.png"},
+      {"shape":"ParticleField","id":17,"tier":"Standard","palette":"Ruby","archetype":"Quantum Singularity","motion":"Celestial Drift","mp4":"./assets/shapes/particlefield.mp4","png":"./assets/shapes/particlefield.png"},
+      {"shape":"CircuitLattice","id":19,"tier":"Prime","palette":"Neon","archetype":"Cybernetic Grid","motion":"Disciplined Static","mp4":"./assets/shapes/circuitlattice.mp4","png":"./assets/shapes/circuitlattice.png"},
+      {"shape":"FluidSquare","id":22,"tier":"Prime","palette":"Neon","archetype":"Harmonic Resonance","motion":"Pulse","mp4":"./assets/shapes/fluidsquare.mp4","png":"./assets/shapes/fluidsquare.png"},
+      {"shape":"VortexPortal","id":23,"tier":"Standard","palette":"Luminescence","archetype":"Dimensional Vortex","motion":"Mixed Synthesis","mp4":"./assets/shapes/vortexportal.mp4","png":"./assets/shapes/vortexportal.png"},
+      {"shape":"WaveGrid","id":29,"tier":"Standard","palette":"Cool","archetype":"Cybernetic Grid","motion":"Celestial Drift","mp4":"./assets/shapes/wavegrid.mp4","png":"./assets/shapes/wavegrid.png"},
+      {"shape":"Holographic","id":35,"tier":"Standard","palette":"Ethereum","archetype":"Quantum Singularity","motion":"Celestial Drift","mp4":"./assets/shapes/holographic.mp4","png":"./assets/shapes/holographic.png"},
+      {"shape":"CrystalPrism","id":44,"tier":"Standard","palette":"Bitcoin","archetype":"Sacred Geometry","motion":"Disciplined Static","mp4":"./assets/shapes/crystalprism.mp4","png":"./assets/shapes/crystalprism.png"},
+      {"shape":"TorusKnot","id":82,"tier":"Standard","palette":"Neon","archetype":"Dimensional Vortex","motion":"Celestial Drift","mp4":"./assets/shapes/torusknot.mp4","png":"./assets/shapes/torusknot.png"},
+      {"shape":"Kraken","id":823,"tier":"Ultra-Rare","palette":"Kraken","archetype":"Sacred Geometry","motion":"Disciplined Static","mp4":"./assets/shapes/kraken.mp4","png":"./assets/shapes/kraken.png"},
+      {"shape":"ScatteredImpactNodes","id":1140,"tier":"Standard","palette":"Neon","archetype":"Cybernetic Grid","motion":"Hyperfluid Wave","mp4":"./assets/shapes/scatteredimpactnodes.mp4","png":"./assets/shapes/scatteredimpactnodes.png"},
+      {"shape":"HilbertCurve","id":1590,"tier":"Standard","palette":"Luminescence","archetype":"Sacred Geometry","motion":"Counter Spin","mp4":"./assets/shapes/hilbertcurve.mp4","png":"./assets/shapes/hilbertcurve.png"},
+      {"shape":"SunConnections","id":2694,"tier":"Super Rare","palette":"Gold","archetype":"Quantum Singularity","motion":"Quantum Dynamics","mp4":"./assets/shapes/sunconnections.mp4","png":"./assets/shapes/sunconnections.png"},
+      {"shape":"SpiralsSphere","id":2959,"tier":"Uncommon","palette":"Kraken","archetype":"Sacred Geometry","motion":"Pendulum","mp4":"./assets/shapes/spiralssphere.mp4","png":"./assets/shapes/spiralssphere.png"}
+    ];
+
+    let currentSelectedShape = SHAPES_DATA.find(s => s.shape === 'Kraken') || SHAPES_DATA[0];
+    let activeFilter = 'all';
+    let searchQuery = '';
+
+    function renderCodex() {
+      const grid = document.getElementById('codex-grid');
+      if (!grid) return;
+
+      const filtered = SHAPES_DATA.filter(item => {
+        const matchesQuery = item.shape.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                             item.archetype.toLowerCase().includes(searchQuery.toLowerCase());
+        if (!matchesQuery) return false;
+        if (activeFilter === 'all') return true;
+        if (activeFilter === 'Ultra-Rare') return item.tier.includes('Ultra');
+        if (activeFilter === 'Prime') return item.tier.includes('Prime');
+        if (activeFilter === 'Super-Rare') return item.tier.includes('Super');
+        if (activeFilter === 'Select') return item.tier.includes('Select');
+        if (activeFilter === 'Standard') return item.tier === 'Standard';
+        return true;
+      });
+
+      if (filtered.length === 0) {
+        grid.innerHTML = '<div class="col-span-full py-12 text-center font-mono text-sm text-gray-400">No shapes found matching your search.</div>';
+        return;
+      }
+
+      grid.innerHTML = filtered.map(item => {
+        const isUltra = item.tier.includes('Ultra');
+        const badgeColor = isUltra 
+          ? 'bg-ink-500/30 text-ink-cyan border-ink-cyan/40' 
+          : (item.tier.includes('Prime') || item.tier.includes('Super') 
+             ? 'bg-purple-500/20 text-purple-300 border-purple-500/30' 
+             : 'bg-white/5 text-gray-300 border-white/10');
+
+        return `
+          <div class="glass-panel glass-panel-interactive rounded-2xl p-3 sm:p-3.5 flex flex-col justify-between group hover:border-ink-400/50 transition-all">
+            <!-- Media Container with Hover Play -->
+            <div class="aspect-square w-full rounded-xl overflow-hidden bg-black/80 relative mb-3 border border-white/10 shadow-inner">
+              <video 
+                src="${item.mp4}" 
+                poster="${item.png}" 
+                loop 
+                muted 
+                playsinline 
+                preload="metadata"
+                onmouseenter="this.play().catch(()=>{})"
+                onmouseleave="this.pause()"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+              </video>
+              <span class="absolute top-2 right-2 px-2 py-0.5 rounded-md border text-[10px] font-mono font-semibold backdrop-blur-md ${badgeColor}">
+                ${item.tier}
+              </span>
+            </div>
+
+            <!-- Shape Details -->
+            <div class="mb-3">
+              <div class="flex items-center justify-between">
+                <h4 class="font-display font-bold text-white text-base tracking-wide">${item.shape}</h4>
+                <span class="text-[10px] font-mono text-ink-300">${item.motion}</span>
+              </div>
+              <span class="text-[11px] font-mono text-gray-400 block mt-0.5">${item.archetype}</span>
+            </div>
+
+            <!-- Share Button -->
+            <button onclick="openShareModal('${item.shape}')" class="w-full py-2 px-3 rounded-xl bg-white/[0.04] hover:bg-gradient-to-r hover:from-ink-500 hover:to-ink-400 border border-white/10 hover:border-transparent text-gray-200 hover:text-white font-mono text-xs font-semibold flex items-center justify-center gap-1.5 transition-all shadow-sm active:scale-95 group/btn">
+              <i data-lucide="twitter" class="w-3.5 h-3.5 text-ink-cyan group-hover/btn:text-white"></i>
+              <span>Flex on X</span>
+            </button>
+          </div>
+        `;
+      }).join('');
+
+      lucide.createIcons();
+    }
+
+    function filterCodex(tier) {
+      activeFilter = tier;
+      document.querySelectorAll('.codex-filter').forEach(btn => {
+        if (btn.textContent.toLowerCase().includes(tier.toLowerCase())) {
+          btn.classList.add('bg-ink-500', 'text-white', 'font-semibold');
+          btn.classList.remove('bg-white/5', 'text-gray-300');
+        } else {
+          btn.classList.remove('bg-ink-500', 'text-white', 'font-semibold');
+          btn.classList.add('bg-white/5', 'text-gray-300');
+        }
+      });
+      renderCodex();
+    }
+
+    function handleSearch(q) {
+      searchQuery = q;
+      renderCodex();
+    }
+
+    function openShareModal(shapeName) {
+      const found = SHAPES_DATA.find(s => s.shape === shapeName) || SHAPES_DATA[0];
+      currentSelectedShape = found;
+
+      document.getElementById('modal-shape-title').textContent = found.shape;
+      document.getElementById('modal-tier-badge').textContent = found.tier;
+
+      const vid = document.getElementById('modal-video');
+      vid.src = found.mp4;
+      vid.poster = found.png;
+      vid.load();
+      vid.play().catch(()=>{});
+
+      const modal = document.getElementById('share-modal');
+      modal.classList.remove('opacity-0', 'pointer-events-none');
+      modal.classList.add('opacity-100');
+      lucide.createIcons();
+    }
+
+    function openShareModalForCurrentHero() {
+      // Map specimens array index to shape name
+      const currentHero = specimens[currentIndex];
+      if (currentHero) {
+        openShareModal(currentHero.shape);
+      } else {
+        openShareModal('Kraken');
+      }
+    }
+
+    function closeShareModal() {
+      const modal = document.getElementById('share-modal');
+      modal.classList.add('opacity-0', 'pointer-events-none');
+      modal.classList.remove('opacity-100');
+      const vid = document.getElementById('modal-video');
+      vid.pause();
+    }
+
+    function randomizeAura() {
+      const rand = SHAPES_DATA[Math.floor(Math.random() * SHAPES_DATA.length)];
+      openShareModal(rand.shape);
+    }
+
+    function copyTweetText() {
+      const text = "repeat after me @inkednodes = one more reason to bridge to @inkonchain\n\nhttps://auranodes.ink";
+      navigator.clipboard.writeText(text).then(() => {
+        const btn = document.getElementById('btn-copy-text');
+        btn.textContent = "Copied to Clipboard! ✓";
+        setTimeout(() => { btn.textContent = "Copy Text Only"; }, 2500);
+      });
+    }
+
+    function executeShareOnX() {
+      if (!currentSelectedShape) return;
+
+      // 1. Download video file
+      const link = document.createElement('a');
+      link.href = currentSelectedShape.mp4;
+      link.download = `auranode_${currentSelectedShape.shape.toLowerCase()}.mp4`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+
+      // 2. Pre-fill text & Copy to Clipboard
+      const tweetText = "repeat after me @inkednodes = one more reason to bridge to @inkonchain\n\nhttps://auranodes.ink";
+      navigator.clipboard.writeText(tweetText).catch(()=>{});
+
+      // 3. Open X compose in new tab
+      const tweetUrl = `https://x.com/intent/post?text=${encodeURIComponent(tweetText)}`;
+      window.open(tweetUrl, '_blank');
+
+      // 4. Update UI feedback
+      const btn = document.getElementById('btn-copy-text');
+      if (btn) btn.textContent = "Video Downloaded! ✓";
+    }
+
+    // Initialize Codex on DOM load
+    window.addEventListener('DOMContentLoaded', () => {
+      renderCodex();
+    });
+  </script>
+
 </body>
 </html>
