@@ -512,12 +512,12 @@
 
       <!-- Tier Filters -->
       <div class="flex items-center gap-1.5 flex-wrap w-full sm:w-auto font-mono text-xs">
-        <button onclick="filterCodex('all')" class="codex-filter active px-3 py-1.5 rounded-lg bg-ink-500 text-white font-semibold transition-all">All (26)</button>
-        <button onclick="filterCodex('Ultra-Rare')" class="codex-filter px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-ink-300 hover:text-white transition-all">Ultra-Rare</button>
-        <button onclick="filterCodex('Prime')" class="codex-filter px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-gray-300 hover:text-white transition-all">Prime</button>
-        <button onclick="filterCodex('Super-Rare')" class="codex-filter px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-gray-300 hover:text-white transition-all">Super-Rare</button>
-        <button onclick="filterCodex('Select')" class="codex-filter px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-gray-300 hover:text-white transition-all">Select</button>
-        <button onclick="filterCodex('Standard')" class="codex-filter px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-gray-300 hover:text-white transition-all">Standard</button>
+        <button data-tier="all" onclick="filterCodex('all')" class="codex-filter active px-3 py-1.5 rounded-lg bg-ink-500 text-white font-semibold transition-all">All (26)</button>
+        <button data-tier="Apex Grail" onclick="filterCodex('Apex Grail')" class="codex-filter px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-amber-300 hover:text-white transition-all">Apex Grail (4)</button>
+        <button data-tier="Ink Special" onclick="filterCodex('Ink Special')" class="codex-filter px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-ink-cyan hover:text-white transition-all">Ink Special (2)</button>
+        <button data-tier="Super-Rare" onclick="filterCodex('Super-Rare')" class="codex-filter px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-purple-300 hover:text-white transition-all">Super-Rare (2)</button>
+        <button data-tier="Rare" onclick="filterCodex('Rare')" class="codex-filter px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-cyan-300 hover:text-white transition-all">Rare (6)</button>
+        <button data-tier="Foundation" onclick="filterCodex('Foundation')" class="codex-filter px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-gray-300 hover:text-white transition-all">Foundation (12)</button>
       </div>
     </div>
 
@@ -827,33 +827,293 @@
   <!-- SHAPE CODEX & SHARE SCRIPT -->
   <script>
     const SHAPES_DATA = [
-      {"shape":"ContourBands","id":1,"tier":"Standard","palette":"Ethereum","archetype":"Harmonic Resonance","motion":"Celestial Drift","mp4":"./assets/shapes/contourbands.mp4","png":"./assets/shapes/contourbands.png"},
-      {"shape":"Spiral","id":2,"tier":"Super Rare","palette":"Bitcoin","archetype":"Dimensional Vortex","motion":"Counter Spin","mp4":"./assets/shapes/spiral.mp4","png":"./assets/shapes/spiral.png"},
-      {"shape":"LissajousRing","id":3,"tier":"Super-Rare","palette":"Bitcoin","archetype":"Sacred Geometry","motion":"Disciplined Static","mp4":"./assets/shapes/lissajousring.mp4","png":"./assets/shapes/lissajousring.png"},
-      {"shape":"SuperHex","id":4,"tier":"Standard","palette":"Emerald","archetype":"Sacred Geometry","motion":"Disciplined Static","mp4":"./assets/shapes/superhex.mp4","png":"./assets/shapes/superhex.png"},
-      {"shape":"MoireBands","id":5,"tier":"Standard","palette":"Ethereum","archetype":"Cybernetic Grid","motion":"Pulse","mp4":"./assets/shapes/moirebands.mp4","png":"./assets/shapes/moirebands.png"},
-      {"shape":"QuantumMembrane","id":7,"tier":"Standard","palette":"Bitcoin","archetype":"Quantum Singularity","motion":"Quantum Dynamics","mp4":"./assets/shapes/quantummembrane.mp4","png":"./assets/shapes/quantummembrane.png"},
-      {"shape":"Portal","id":9,"tier":"Standard","palette":"Emerald","archetype":"Dimensional Vortex","motion":"Celestial Drift","mp4":"./assets/shapes/portal.mp4","png":"./assets/shapes/portal.png"},
-      {"shape":"Ink","id":10,"tier":"Ultra-Rare","palette":"Ink","archetype":"Sacred Geometry","motion":"Disciplined Static","mp4":"./assets/shapes/ink.mp4","png":"./assets/shapes/ink.png"},
-      {"shape":"CircuitMatrix","id":11,"tier":"Ultra-Rare Balanced","palette":"Ethereum","archetype":"Cybernetic Grid","motion":"Hyperfluid Wave","mp4":"./assets/shapes/circuitmatrix.mp4","png":"./assets/shapes/circuitmatrix.png"},
-      {"shape":"TorsionRibbon","id":12,"tier":"Super-Rare","palette":"Gold","archetype":"Dimensional Vortex","motion":"Mixed Synthesis","mp4":"./assets/shapes/torsionribbon.mp4","png":"./assets/shapes/torsionribbon.png"},
-      {"shape":"Circle","id":13,"tier":"Select","palette":"Pepe","archetype":"Harmonic Resonance","motion":"Celestial Drift","mp4":"./assets/shapes/circle.mp4","png":"./assets/shapes/circle.png"},
-      {"shape":"QuantumField","id":14,"tier":"Select","palette":"Emerald","archetype":"Quantum Singularity","motion":"Harmonic Ease","mp4":"./assets/shapes/quantumfield.mp4","png":"./assets/shapes/quantumfield.png"},
-      {"shape":"EnergySphere","id":15,"tier":"Standard","palette":"Pepe","archetype":"Quantum Singularity","motion":"Pulse","mp4":"./assets/shapes/energysphere.mp4","png":"./assets/shapes/energysphere.png"},
-      {"shape":"ParticleField","id":17,"tier":"Standard","palette":"Ruby","archetype":"Quantum Singularity","motion":"Celestial Drift","mp4":"./assets/shapes/particlefield.mp4","png":"./assets/shapes/particlefield.png"},
-      {"shape":"CircuitLattice","id":19,"tier":"Prime","palette":"Neon","archetype":"Cybernetic Grid","motion":"Disciplined Static","mp4":"./assets/shapes/circuitlattice.mp4","png":"./assets/shapes/circuitlattice.png"},
-      {"shape":"FluidSquare","id":22,"tier":"Prime","palette":"Neon","archetype":"Harmonic Resonance","motion":"Pulse","mp4":"./assets/shapes/fluidsquare.mp4","png":"./assets/shapes/fluidsquare.png"},
-      {"shape":"VortexPortal","id":23,"tier":"Standard","palette":"Luminescence","archetype":"Dimensional Vortex","motion":"Mixed Synthesis","mp4":"./assets/shapes/vortexportal.mp4","png":"./assets/shapes/vortexportal.png"},
-      {"shape":"WaveGrid","id":29,"tier":"Standard","palette":"Cool","archetype":"Cybernetic Grid","motion":"Celestial Drift","mp4":"./assets/shapes/wavegrid.mp4","png":"./assets/shapes/wavegrid.png"},
-      {"shape":"Holographic","id":35,"tier":"Standard","palette":"Ethereum","archetype":"Quantum Singularity","motion":"Celestial Drift","mp4":"./assets/shapes/holographic.mp4","png":"./assets/shapes/holographic.png"},
-      {"shape":"CrystalPrism","id":44,"tier":"Standard","palette":"Bitcoin","archetype":"Sacred Geometry","motion":"Disciplined Static","mp4":"./assets/shapes/crystalprism.mp4","png":"./assets/shapes/crystalprism.png"},
-      {"shape":"TorusKnot","id":82,"tier":"Standard","palette":"Neon","archetype":"Dimensional Vortex","motion":"Celestial Drift","mp4":"./assets/shapes/torusknot.mp4","png":"./assets/shapes/torusknot.png"},
-      {"shape":"Kraken","id":823,"tier":"Ultra-Rare","palette":"Kraken","archetype":"Sacred Geometry","motion":"Disciplined Static","mp4":"./assets/shapes/kraken.mp4","png":"./assets/shapes/kraken.png"},
-      {"shape":"ScatteredImpactNodes","id":1140,"tier":"Standard","palette":"Neon","archetype":"Cybernetic Grid","motion":"Hyperfluid Wave","mp4":"./assets/shapes/scatteredimpactnodes.mp4","png":"./assets/shapes/scatteredimpactnodes.png"},
-      {"shape":"HilbertCurve","id":1590,"tier":"Standard","palette":"Luminescence","archetype":"Sacred Geometry","motion":"Counter Spin","mp4":"./assets/shapes/hilbertcurve.mp4","png":"./assets/shapes/hilbertcurve.png"},
-      {"shape":"SunConnections","id":2694,"tier":"Super Rare","palette":"Gold","archetype":"Quantum Singularity","motion":"Quantum Dynamics","mp4":"./assets/shapes/sunconnections.mp4","png":"./assets/shapes/sunconnections.png"},
-      {"shape":"SpiralsSphere","id":2959,"tier":"Uncommon","palette":"Kraken","archetype":"Sacred Geometry","motion":"Pendulum","mp4":"./assets/shapes/spiralssphere.mp4","png":"./assets/shapes/spiralssphere.png"}
-    ];
+    {
+        "shape": "QuantumMembrane",
+        "id": 7,
+        "tier": "Apex Grail",
+        "palette": "Bitcoin",
+        "archetype": "Quantum Singularity",
+        "motion": "Quantum Dynamics",
+        "mp4": "./assets/shapes/quantummembrane.mp4",
+        "png": "./assets/shapes/quantummembrane.png",
+        "supply": 32
+    },
+    {
+        "shape": "SunConnections",
+        "id": 2694,
+        "tier": "Apex Grail",
+        "palette": "Gold",
+        "archetype": "Quantum Singularity",
+        "motion": "Quantum Dynamics",
+        "mp4": "./assets/shapes/sunconnections.mp4",
+        "png": "./assets/shapes/sunconnections.png",
+        "supply": 32
+    },
+    {
+        "shape": "TorsionRibbon",
+        "id": 12,
+        "tier": "Apex Grail",
+        "palette": "Gold",
+        "archetype": "Dimensional Vortex",
+        "motion": "Mixed Synthesis",
+        "mp4": "./assets/shapes/torsionribbon.mp4",
+        "png": "./assets/shapes/torsionribbon.png",
+        "supply": 32
+    },
+    {
+        "shape": "VortexPortal",
+        "id": 23,
+        "tier": "Apex Grail",
+        "palette": "Luminescence",
+        "archetype": "Dimensional Vortex",
+        "motion": "Mixed Synthesis",
+        "mp4": "./assets/shapes/vortexportal.mp4",
+        "png": "./assets/shapes/vortexportal.png",
+        "supply": 32
+    },
+    {
+        "shape": "Ink",
+        "id": 10,
+        "tier": "Ink Special",
+        "palette": "Ink",
+        "archetype": "Sacred Geometry",
+        "motion": "Disciplined Static",
+        "mp4": "./assets/shapes/ink.mp4",
+        "png": "./assets/shapes/ink.png",
+        "supply": 16
+    },
+    {
+        "shape": "Kraken",
+        "id": 823,
+        "tier": "Ink Special",
+        "palette": "Kraken",
+        "archetype": "Sacred Geometry",
+        "motion": "Disciplined Static",
+        "mp4": "./assets/shapes/kraken.mp4",
+        "png": "./assets/shapes/kraken.png",
+        "supply": 16
+    },
+    {
+        "shape": "HilbertCurve",
+        "id": 1590,
+        "tier": "Super-Rare",
+        "palette": "Luminescence",
+        "archetype": "Sacred Geometry",
+        "motion": "Counter Spin",
+        "mp4": "./assets/shapes/hilbertcurve.mp4",
+        "png": "./assets/shapes/hilbertcurve.png",
+        "supply": 64
+    },
+    {
+        "shape": "Spiral",
+        "id": 2,
+        "tier": "Super-Rare",
+        "palette": "Bitcoin",
+        "archetype": "Dimensional Vortex",
+        "motion": "Counter Spin",
+        "mp4": "./assets/shapes/spiral.mp4",
+        "png": "./assets/shapes/spiral.png",
+        "supply": 64
+    },
+    {
+        "shape": "CircuitMatrix",
+        "id": 11,
+        "tier": "Rare",
+        "palette": "Ethereum",
+        "archetype": "Cybernetic Grid",
+        "motion": "Hyperfluid Wave",
+        "mp4": "./assets/shapes/circuitmatrix.mp4",
+        "png": "./assets/shapes/circuitmatrix.png",
+        "supply": 128
+    },
+    {
+        "shape": "CrystalPrism",
+        "id": 44,
+        "tier": "Rare",
+        "palette": "Bitcoin",
+        "archetype": "Sacred Geometry",
+        "motion": "Disciplined Static",
+        "mp4": "./assets/shapes/crystalprism.mp4",
+        "png": "./assets/shapes/crystalprism.png",
+        "supply": 128
+    },
+    {
+        "shape": "Holographic",
+        "id": 35,
+        "tier": "Rare",
+        "palette": "Ethereum",
+        "archetype": "Quantum Singularity",
+        "motion": "Celestial Drift",
+        "mp4": "./assets/shapes/holographic.mp4",
+        "png": "./assets/shapes/holographic.png",
+        "supply": 128
+    },
+    {
+        "shape": "ScatteredImpactNodes",
+        "id": 1140,
+        "tier": "Rare",
+        "palette": "Neon",
+        "archetype": "Cybernetic Grid",
+        "motion": "Hyperfluid Wave",
+        "mp4": "./assets/shapes/scatteredimpactnodes.mp4",
+        "png": "./assets/shapes/scatteredimpactnodes.png",
+        "supply": 128
+    },
+    {
+        "shape": "SpiralsSphere",
+        "id": 2959,
+        "tier": "Rare",
+        "palette": "Kraken",
+        "archetype": "Sacred Geometry",
+        "motion": "Pendulum",
+        "mp4": "./assets/shapes/spiralssphere.mp4",
+        "png": "./assets/shapes/spiralssphere.png",
+        "supply": 128
+    },
+    {
+        "shape": "TorusKnot",
+        "id": 82,
+        "tier": "Rare",
+        "palette": "Neon",
+        "archetype": "Dimensional Vortex",
+        "motion": "Celestial Drift",
+        "mp4": "./assets/shapes/torusknot.mp4",
+        "png": "./assets/shapes/torusknot.png",
+        "supply": 128
+    },
+    {
+        "shape": "Circle",
+        "id": 13,
+        "tier": "Foundation",
+        "palette": "Pepe",
+        "archetype": "Harmonic Resonance",
+        "motion": "Celestial Drift",
+        "mp4": "./assets/shapes/circle.mp4",
+        "png": "./assets/shapes/circle.png",
+        "supply": 254
+    },
+    {
+        "shape": "CircuitLattice",
+        "id": 19,
+        "tier": "Foundation",
+        "palette": "Neon",
+        "archetype": "Cybernetic Grid",
+        "motion": "Disciplined Static",
+        "mp4": "./assets/shapes/circuitlattice.mp4",
+        "png": "./assets/shapes/circuitlattice.png",
+        "supply": 253
+    },
+    {
+        "shape": "ContourBands",
+        "id": 1,
+        "tier": "Foundation",
+        "palette": "Ethereum",
+        "archetype": "Harmonic Resonance",
+        "motion": "Celestial Drift",
+        "mp4": "./assets/shapes/contourbands.mp4",
+        "png": "./assets/shapes/contourbands.png",
+        "supply": 253
+    },
+    {
+        "shape": "EnergySphere",
+        "id": 15,
+        "tier": "Foundation",
+        "palette": "Pepe",
+        "archetype": "Quantum Singularity",
+        "motion": "Pulse",
+        "mp4": "./assets/shapes/energysphere.mp4",
+        "png": "./assets/shapes/energysphere.png",
+        "supply": 253
+    },
+    {
+        "shape": "FluidSquare",
+        "id": 22,
+        "tier": "Foundation",
+        "palette": "Neon",
+        "archetype": "Harmonic Resonance",
+        "motion": "Pulse",
+        "mp4": "./assets/shapes/fluidsquare.mp4",
+        "png": "./assets/shapes/fluidsquare.png",
+        "supply": 253
+    },
+    {
+        "shape": "LissajousRing",
+        "id": 3,
+        "tier": "Foundation",
+        "palette": "Bitcoin",
+        "archetype": "Sacred Geometry",
+        "motion": "Disciplined Static",
+        "mp4": "./assets/shapes/lissajousring.mp4",
+        "png": "./assets/shapes/lissajousring.png",
+        "supply": 253
+    },
+    {
+        "shape": "MoireBands",
+        "id": 5,
+        "tier": "Foundation",
+        "palette": "Ethereum",
+        "archetype": "Cybernetic Grid",
+        "motion": "Pulse",
+        "mp4": "./assets/shapes/moirebands.mp4",
+        "png": "./assets/shapes/moirebands.png",
+        "supply": 254
+    },
+    {
+        "shape": "ParticleField",
+        "id": 17,
+        "tier": "Foundation",
+        "palette": "Ruby",
+        "archetype": "Quantum Singularity",
+        "motion": "Celestial Drift",
+        "mp4": "./assets/shapes/particlefield.mp4",
+        "png": "./assets/shapes/particlefield.png",
+        "supply": 254
+    },
+    {
+        "shape": "Portal",
+        "id": 9,
+        "tier": "Foundation",
+        "palette": "Emerald",
+        "archetype": "Dimensional Vortex",
+        "motion": "Celestial Drift",
+        "mp4": "./assets/shapes/portal.mp4",
+        "png": "./assets/shapes/portal.png",
+        "supply": 253
+    },
+    {
+        "shape": "QuantumField",
+        "id": 14,
+        "tier": "Foundation",
+        "palette": "Emerald",
+        "archetype": "Quantum Singularity",
+        "motion": "Harmonic Ease",
+        "mp4": "./assets/shapes/quantumfield.mp4",
+        "png": "./assets/shapes/quantumfield.png",
+        "supply": 253
+    },
+    {
+        "shape": "SuperHex",
+        "id": 4,
+        "tier": "Foundation",
+        "palette": "Emerald",
+        "archetype": "Sacred Geometry",
+        "motion": "Disciplined Static",
+        "mp4": "./assets/shapes/superhex.mp4",
+        "png": "./assets/shapes/superhex.png",
+        "supply": 253
+    },
+    {
+        "shape": "WaveGrid",
+        "id": 29,
+        "tier": "Foundation",
+        "palette": "Cool",
+        "archetype": "Cybernetic Grid",
+        "motion": "Celestial Drift",
+        "mp4": "./assets/shapes/wavegrid.mp4",
+        "png": "./assets/shapes/wavegrid.png",
+        "supply": 254
+    }
+];
 
     let currentSelectedShape = SHAPES_DATA.find(s => s.shape === 'Kraken') || SHAPES_DATA[0];
     let activeFilter = 'all';
@@ -868,12 +1128,7 @@
                              item.archetype.toLowerCase().includes(searchQuery.toLowerCase());
         if (!matchesQuery) return false;
         if (activeFilter === 'all') return true;
-        if (activeFilter === 'Ultra-Rare') return item.tier.includes('Ultra');
-        if (activeFilter === 'Prime') return item.tier.includes('Prime');
-        if (activeFilter === 'Super-Rare') return item.tier.includes('Super');
-        if (activeFilter === 'Select') return item.tier.includes('Select');
-        if (activeFilter === 'Standard') return item.tier === 'Standard';
-        return true;
+        return item.tier.toLowerCase() === activeFilter.toLowerCase();
       });
 
       if (filtered.length === 0) {
@@ -882,12 +1137,16 @@
       }
 
       grid.innerHTML = filtered.map(item => {
-        const isUltra = item.tier.includes('Ultra');
-        const badgeColor = isUltra 
-          ? 'bg-ink-500/30 text-ink-cyan border-ink-cyan/40' 
-          : (item.tier.includes('Prime') || item.tier.includes('Super') 
-             ? 'bg-purple-500/20 text-purple-300 border-purple-500/30' 
-             : 'bg-white/5 text-gray-300 border-white/10');
+        let badgeColor = 'bg-white/10 text-gray-300 border-white/15';
+        if (item.tier === 'Apex Grail') {
+          badgeColor = 'bg-amber-500/20 text-amber-300 border-amber-500/40 shadow-sm';
+        } else if (item.tier === 'Ink Special') {
+          badgeColor = 'bg-ink-500/30 text-ink-cyan border-ink-cyan/40 shadow-sm';
+        } else if (item.tier === 'Super-Rare') {
+          badgeColor = 'bg-purple-500/20 text-purple-300 border-purple-500/40 shadow-sm';
+        } else if (item.tier === 'Rare') {
+          badgeColor = 'bg-cyan-500/20 text-cyan-300 border-cyan-500/30';
+        }
 
         return `
           <div class="glass-panel glass-panel-interactive rounded-2xl p-3 sm:p-3.5 flex flex-col justify-between group hover:border-ink-400/50 transition-all">
@@ -905,7 +1164,7 @@
                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
               </video>
               <span class="absolute top-2 right-2 px-2 py-0.5 rounded-md border text-[10px] font-mono font-semibold backdrop-blur-md ${badgeColor}">
-                ${item.tier}
+                ${item.tier} · ${item.supply}
               </span>
             </div>
 
@@ -933,12 +1192,12 @@
     function filterCodex(tier) {
       activeFilter = tier;
       document.querySelectorAll('.codex-filter').forEach(btn => {
-        if (btn.textContent.toLowerCase().includes(tier.toLowerCase())) {
+        if (btn.getAttribute('data-tier') === tier) {
           btn.classList.add('bg-ink-500', 'text-white', 'font-semibold');
-          btn.classList.remove('bg-white/5', 'text-gray-300');
+          btn.classList.remove('bg-white/5');
         } else {
           btn.classList.remove('bg-ink-500', 'text-white', 'font-semibold');
-          btn.classList.add('bg-white/5', 'text-gray-300');
+          btn.classList.add('bg-white/5');
         }
       });
       renderCodex();
@@ -954,7 +1213,7 @@
       currentSelectedShape = found;
 
       document.getElementById('modal-shape-title').textContent = found.shape;
-      document.getElementById('modal-tier-badge').textContent = found.tier;
+      document.getElementById('modal-tier-badge').textContent = `${found.tier} · ${found.supply} Supply`;
 
       const vid = document.getElementById('modal-video');
       vid.src = found.mp4;
