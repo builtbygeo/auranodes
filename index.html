@@ -296,7 +296,7 @@
                 <span class="text-gray-300 flex items-center gap-1.5">
                   <span class="w-1.5 h-1.5 rounded-full bg-white"></span> Public Sale:
                 </span>
-                <span class="text-white font-bold">0.00222 ETH (Max 100)</span>
+                <span class="text-white font-bold">0.00111 ETH</span>
               </div>
             </div>
 
@@ -324,9 +324,7 @@
 
             <!-- Lineage Notice & Eligible Collections Chips -->
             <div class="mt-3 pt-3 border-t border-white/[0.08]">
-              <p class="text-[11px] text-gray-400 mb-2 leading-tight">
-                WL for LifeNodes + these Ink collections we like. Not affiliated.
-              </p>
+
               <div class="flex flex-wrap gap-1.5">
                 <span class="px-2 py-0.5 rounded-md bg-white/[0.04] border border-white/10 text-[10px] font-mono text-ink-300 font-medium">LifeNodes</span>
                 <span class="px-2 py-0.5 rounded-md bg-white/[0.04] border border-white/10 text-[10px] font-mono text-gray-300">THE 404 MACHINE</span>
@@ -352,17 +350,17 @@
             <div class="flex items-center gap-2">
               <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-black/60 backdrop-blur-md border border-white/10 text-white font-mono text-xs">
                 <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                <span id="hud-id">Specimen #369</span>
+                <span id="hud-id">Ink Special · 16</span>
               </span>
               <span id="hud-archetype" class="hidden sm:inline-block px-2.5 py-1 rounded-lg bg-ink-500/20 border border-ink-500/40 text-ink-300 font-mono text-xs font-semibold">
-                Particle Field
+                Ink
               </span>
             </div>
 
             <!-- Dynamic Trait Tag & Quick Share -->
             <div class="flex items-center gap-2">
               <span id="hud-motion" class="hidden sm:inline-block px-2.5 py-1 rounded-lg bg-white/5 border border-white/10 text-gray-300 font-mono text-xs">
-                Pulse Dynamic · 6.0s
+                Disciplined Static · 5.0s
               </span>
               <button onclick="openShareModalForCurrentHero()" class="px-2.5 py-1 rounded-lg bg-gradient-to-r from-ink-500/25 to-ink-cyan/25 hover:from-ink-500/40 hover:to-ink-cyan/40 border border-ink-400/40 text-white font-mono text-xs font-semibold flex items-center gap-1.5 transition-all shadow-sm hover:scale-105 active:scale-95" title="Flex on X">
                 <i data-lucide="twitter" class="w-3.5 h-3.5 text-ink-cyan"></i>
@@ -384,17 +382,17 @@
                    muted 
                    playsinline 
                    preload="auto"
-                   poster="./assets/aura_1.png"
+                   poster="./assets/shapes/ink.png"
                    class="w-full h-full object-cover transition-opacity duration-500 z-10">
-              <source id="video-source" src="./assets/aura_1.webm" type="video/webm">
-              <img id="fallback-img" src="./assets/aura_1.png" alt="Specimen #369 · Particle Field" class="w-full h-full object-cover">
+              <source id="video-source" src="./assets/shapes/ink.mp4" type="video/mp4">
+              <img id="fallback-img" src="./assets/shapes/ink.png" alt="Ink Special · 16 · Ink" class="w-full h-full object-cover">
             </video>
 
             <!-- Bottom Video HUD Info Overlay -->
             <div class="absolute bottom-3 left-3 right-3 z-20 flex items-center justify-between pointer-events-none">
               <div class="px-3 py-1.5 rounded-xl bg-black/60 backdrop-blur-md border border-white/10 text-[11px] font-mono text-gray-300 flex items-center gap-2">
                 <i data-lucide="layers" class="w-3.5 h-3.5 text-ink-400"></i>
-                <span id="hud-layers">7 Harmonic Layers</span>
+                <span id="hud-layers">3 Harmonic Layers</span>
               </div>
               <div class="px-3 py-1.5 rounded-xl bg-black/60 backdrop-blur-md border border-white/10 text-[11px] font-mono text-ink-cyan flex items-center gap-1.5">
                 <i data-lucide="activity" class="w-3.5 h-3.5"></i>
@@ -420,11 +418,11 @@
               <button onclick="selectNode(0)" id="node-btn-0" 
                       class="node-tab active group relative rounded-xl p-1 bg-white/[0.03] hover:bg-ink-500/20 border-2 border-ink-400 transition-all text-left flex flex-col gap-1 shadow-ink-pill">
                 <div class="w-full aspect-square rounded-lg overflow-hidden relative bg-black">
-                  <img src="./assets/aura_1.png" alt="Particle Field" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+                  <img src="./assets/shapes/ink.png" alt="Ink Special · 16" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
                 </div>
                 <div class="px-1 flex flex-col sm:flex-row justify-between sm:items-center gap-0.5">
-                  <span class="text-[11px] font-mono font-bold text-white">#369</span>
-                  <span class="text-[9px] font-mono text-ink-cyan truncate">Particle Field</span>
+                  <span class="text-[11px] font-mono font-bold text-white">#16</span>
+                  <span class="text-[9px] font-mono text-ink-cyan truncate">Ink Special</span>
                 </div>
               </button>
 
@@ -432,11 +430,11 @@
               <button onclick="selectNode(1)" id="node-btn-1" 
                       class="node-tab group relative rounded-xl p-1 bg-white/[0.03] hover:bg-ink-500/20 border-2 border-transparent hover:border-white/20 transition-all text-left flex flex-col gap-1">
                 <div class="w-full aspect-square rounded-lg overflow-hidden relative bg-black">
-                  <img src="./assets/aura_2.png" alt="Circuit Lattice" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+                  <img src="./assets/aura_1.png" alt="Particle Field" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
                 </div>
                 <div class="px-1 flex flex-col sm:flex-row justify-between sm:items-center gap-0.5">
-                  <span class="text-[11px] font-mono font-bold text-gray-300">#432</span>
-                  <span class="text-[9px] font-mono text-ink-300 truncate">Circuit Lattice</span>
+                  <span class="text-[11px] font-mono font-bold text-gray-300">#369</span>
+                  <span class="text-[9px] font-mono text-ink-300 truncate">Particle Field</span>
                 </div>
               </button>
 
@@ -444,11 +442,11 @@
               <button onclick="selectNode(2)" id="node-btn-2" 
                       class="node-tab group relative rounded-xl p-1 bg-white/[0.03] hover:bg-ink-500/20 border-2 border-transparent hover:border-white/20 transition-all text-left flex flex-col gap-1">
                 <div class="w-full aspect-square rounded-lg overflow-hidden relative bg-black">
-                  <img src="./assets/aura_3.png" alt="Torus Knot" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+                  <img src="./assets/aura_2.png" alt="Circuit Lattice" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
                 </div>
                 <div class="px-1 flex flex-col sm:flex-row justify-between sm:items-center gap-0.5">
-                  <span class="text-[11px] font-mono font-bold text-gray-300">#888</span>
-                  <span class="text-[9px] font-mono text-ink-400 truncate">Torus Knot</span>
+                  <span class="text-[11px] font-mono font-bold text-gray-300">#432</span>
+                  <span class="text-[9px] font-mono text-ink-400 truncate">Circuit Lattice</span>
                 </div>
               </button>
 
@@ -456,11 +454,11 @@
               <button onclick="selectNode(3)" id="node-btn-3" 
                       class="node-tab group relative rounded-xl p-1 bg-white/[0.03] hover:bg-ink-500/20 border-2 border-transparent hover:border-white/20 transition-all text-left flex flex-col gap-1">
                 <div class="w-full aspect-square rounded-lg overflow-hidden relative bg-black">
-                  <img src="./assets/aura_4.png" alt="Moiré Bands" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+                  <img src="./assets/aura_3.png" alt="Torus Knot" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
                 </div>
                 <div class="px-1 flex flex-col sm:flex-row justify-between sm:items-center gap-0.5">
-                  <span class="text-[11px] font-mono font-bold text-gray-300">#777</span>
-                  <span class="text-[9px] font-mono text-gray-400 truncate">Moiré Bands</span>
+                  <span class="text-[11px] font-mono font-bold text-gray-300">#888</span>
+                  <span class="text-[9px] font-mono text-gray-400 truncate">Torus Knot</span>
                 </div>
               </button>
 
@@ -638,6 +636,17 @@
     // Specimen Dataset with authentic metadata
     const specimens = [
       {
+        id: "Ink Special · 16",
+        shape: "Ink",
+        archetype: "Sacred Geometry",
+        tier: "Ink Special",
+        motion: "Disciplined Static · 5.0s",
+        layers: "3 Harmonic Layers",
+        video: "./assets/shapes/ink.mp4",
+        image: "./assets/shapes/ink.png",
+        glow: "rgba(255, 0, 115, 0.45)"
+      },
+      {
         id: "Specimen #369",
         shape: "Particle Field",
         archetype: "Particle Field",
@@ -669,17 +678,6 @@
         video: "./assets/aura_3.webm",
         image: "./assets/aura_3.png",
         glow: "rgba(147, 51, 234, 0.4)"
-      },
-      {
-        id: "Specimen #777",
-        shape: "Moiré Bands",
-        archetype: "Moiré Bands",
-        tier: "Prime Resonance",
-        motion: "Celestial Drift · 6.0s",
-        layers: "4 Harmonic Layers",
-        video: "./assets/aura_4.webm",
-        image: "./assets/aura_4.png",
-        glow: "rgba(56, 189, 248, 0.3)"
       }
     ];
 
