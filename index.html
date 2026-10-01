@@ -339,7 +339,7 @@
             <div class="flex items-center gap-2">
               <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-black/60 backdrop-blur-md border border-white/10 text-white font-mono text-xs">
                 <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                <span id="hud-id">Ink Special · 16</span>
+                <span id="hud-id">Apex Grail · 32</span>
               </span>
               <span id="hud-archetype" class="hidden sm:inline-block px-2.5 py-1 rounded-lg bg-ink-500/20 border border-ink-500/40 text-ink-300 font-mono text-xs font-semibold">
                 Ink
@@ -374,10 +374,21 @@
                    poster="./assets/shapes/ink.png"
                    class="w-full h-full object-cover transition-opacity duration-500 z-10">
               <source id="video-source" src="./assets/shapes/ink.mp4" type="video/mp4">
-              <img id="fallback-img" src="./assets/shapes/ink.png" alt="Ink Special · 16 · Ink" class="w-full h-full object-cover">
+              <img id="fallback-img" src="./assets/shapes/ink.png" alt="Apex Grail · 32 · Ink" class="w-full h-full object-cover">
             </video>
 
             <!-- Bottom Video HUD Info Overlay -->
+            <!-- Hero Classified Overlay for Unrevealed Shapes -->
+            <div id="hero-classified-overlay" class="hidden absolute inset-0 flex flex-col items-center justify-center p-3 text-center pointer-events-none z-20 bg-black/40 backdrop-blur-[4px]">
+              <div class="w-12 h-12 rounded-full bg-black/80 border border-ink-500/60 backdrop-blur-md flex items-center justify-center mb-2 shadow-lg">
+                <i data-lucide="eye-off" class="w-6 h-6 text-ink-cyan"></i>
+              </div>
+              <div class="px-3 py-1 rounded-full bg-ink-500/30 border border-ink-500/50 backdrop-blur-sm mb-1.5 shadow-md">
+                <span class="text-xs font-mono font-bold tracking-wider uppercase text-ink-cyan">Unrevealed · 3D Shader</span>
+              </div>
+              <span class="text-[10px] font-mono text-gray-400">Classified Geometry · 30% Visibility</span>
+            </div>
+
             <div class="absolute bottom-3 left-3 right-3 z-20 flex items-center justify-between pointer-events-none">
               <div class="px-3 py-1.5 rounded-xl bg-black/60 backdrop-blur-md border border-white/10 text-[11px] font-mono text-gray-300 flex items-center gap-2">
                 <i data-lucide="layers" class="w-3.5 h-3.5 text-ink-400"></i>
@@ -403,51 +414,63 @@
             <!-- Thumbnails Strip -->
             <div class="grid grid-cols-4 gap-2.5 sm:gap-3">
               
-              <!-- Tab 1 -->
+              <!-- Tab 1: Ink -->
               <button onclick="selectNode(0)" id="node-btn-0" 
                       class="node-tab active group relative rounded-xl p-1 bg-white/[0.03] hover:bg-ink-500/20 border-2 border-ink-400 transition-all text-left flex flex-col gap-1 shadow-ink-pill">
                 <div class="w-full aspect-square rounded-lg overflow-hidden relative bg-black">
-                  <img src="./assets/shapes/ink.png" alt="Ink Special · 16" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+                  <img src="./assets/shapes/ink.png" alt="Ink · 32" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
                 </div>
                 <div class="px-1 flex flex-col sm:flex-row justify-between sm:items-center gap-0.5">
-                  <span class="text-[11px] font-mono font-bold text-white">#16</span>
-                  <span class="text-[9px] font-mono text-ink-cyan truncate">Ink Special</span>
+                  <span class="text-[11px] font-mono font-bold text-white">#32</span>
+                  <span class="text-[9px] font-mono text-amber-300 truncate">Apex Grail</span>
                 </div>
               </button>
 
-              <!-- Tab 2 -->
+              <!-- Tab 2: ApexMorph (Unrevealed Shader) -->
               <button onclick="selectNode(1)" id="node-btn-1" 
                       class="node-tab group relative rounded-xl p-1 bg-white/[0.03] hover:bg-ink-500/20 border-2 border-transparent hover:border-white/20 transition-all text-left flex flex-col gap-1">
                 <div class="w-full aspect-square rounded-lg overflow-hidden relative bg-black">
-                  <img src="./assets/aura_1.png" alt="Particle Field" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+                  <img src="./assets/shapes/apexmorph.png" alt="ApexMorph · 16" style="filter: blur(8px) opacity(0.35); transform: scale(1.15);" class="w-full h-full object-cover group-hover:scale-125 transition-transform duration-300">
+                  <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                    <span class="px-1 py-0.5 rounded bg-black/75 border border-ink-500/50 text-[8px] font-mono font-bold text-ink-cyan flex items-center gap-0.5">
+                      <i data-lucide="eye-off" class="w-2.5 h-2.5"></i>
+                      <span>30%</span>
+                    </span>
+                  </div>
                 </div>
                 <div class="px-1 flex flex-col sm:flex-row justify-between sm:items-center gap-0.5">
-                  <span class="text-[11px] font-mono font-bold text-gray-300">#369</span>
-                  <span class="text-[9px] font-mono text-ink-300 truncate">Particle Field</span>
+                  <span class="text-[11px] font-mono font-bold text-gray-300">#16</span>
+                  <span class="text-[9px] font-mono text-ink-cyan truncate">ApexMorph</span>
                 </div>
               </button>
 
-              <!-- Tab 3 -->
+              <!-- Tab 3: CurlVortex (Unrevealed Shader) -->
               <button onclick="selectNode(2)" id="node-btn-2" 
                       class="node-tab group relative rounded-xl p-1 bg-white/[0.03] hover:bg-ink-500/20 border-2 border-transparent hover:border-white/20 transition-all text-left flex flex-col gap-1">
                 <div class="w-full aspect-square rounded-lg overflow-hidden relative bg-black">
-                  <img src="./assets/aura_2.png" alt="Circuit Lattice" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+                  <img src="./assets/shapes/curlvortex.png" alt="CurlVortex · 128" style="filter: blur(8px) opacity(0.35); transform: scale(1.15);" class="w-full h-full object-cover group-hover:scale-125 transition-transform duration-300">
+                  <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                    <span class="px-1 py-0.5 rounded bg-black/75 border border-ink-500/50 text-[8px] font-mono font-bold text-cyan-300 flex items-center gap-0.5">
+                      <i data-lucide="eye-off" class="w-2.5 h-2.5"></i>
+                      <span>30%</span>
+                    </span>
+                  </div>
                 </div>
                 <div class="px-1 flex flex-col sm:flex-row justify-between sm:items-center gap-0.5">
-                  <span class="text-[11px] font-mono font-bold text-gray-300">#432</span>
-                  <span class="text-[9px] font-mono text-ink-400 truncate">Circuit Lattice</span>
+                  <span class="text-[11px] font-mono font-bold text-gray-300">#128</span>
+                  <span class="text-[9px] font-mono text-cyan-300 truncate">CurlVortex</span>
                 </div>
               </button>
 
-              <!-- Tab 4 -->
+              <!-- Tab 4: Kraken -->
               <button onclick="selectNode(3)" id="node-btn-3" 
                       class="node-tab group relative rounded-xl p-1 bg-white/[0.03] hover:bg-ink-500/20 border-2 border-transparent hover:border-white/20 transition-all text-left flex flex-col gap-1">
                 <div class="w-full aspect-square rounded-lg overflow-hidden relative bg-black">
-                  <img src="./assets/aura_3.png" alt="Torus Knot" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
+                  <img src="./assets/shapes/kraken.png" alt="Kraken · 32" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
                 </div>
                 <div class="px-1 flex flex-col sm:flex-row justify-between sm:items-center gap-0.5">
-                  <span class="text-[11px] font-mono font-bold text-gray-300">#888</span>
-                  <span class="text-[9px] font-mono text-gray-400 truncate">Torus Knot</span>
+                  <span class="text-[11px] font-mono font-bold text-gray-300">#32</span>
+                  <span class="text-[9px] font-mono text-amber-300 truncate">Kraken</span>
                 </div>
               </button>
 
@@ -500,11 +523,10 @@
       <!-- Tier Filters -->
       <div class="flex items-center gap-1.5 flex-wrap w-full sm:w-auto font-mono text-xs">
         <button data-tier="all" onclick="filterCodex('all')" class="codex-filter active px-3 py-1.5 rounded-lg bg-ink-500 text-white font-semibold transition-all">All (26)</button>
-        <button data-tier="Apex Grail" onclick="filterCodex('Apex Grail')" class="codex-filter px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-amber-300 hover:text-white transition-all">Apex Grail (4)</button>
-        <button data-tier="Ink Special" onclick="filterCodex('Ink Special')" class="codex-filter px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-ink-cyan hover:text-white transition-all">Ink Special (2)</button>
-        <button data-tier="Super-Rare" onclick="filterCodex('Super-Rare')" class="codex-filter px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-purple-300 hover:text-white transition-all">Super-Rare (2)</button>
-        <button data-tier="Rare" onclick="filterCodex('Rare')" class="codex-filter px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-cyan-300 hover:text-white transition-all">Rare (6)</button>
-        <button data-tier="Foundation" onclick="filterCodex('Foundation')" class="codex-filter px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-gray-300 hover:text-white transition-all">Foundation (12)</button>
+        <button data-tier="Apex Grail" onclick="filterCodex('Apex Grail')" class="codex-filter px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-amber-300 hover:text-white transition-all">Apex Grail (3)</button>
+        <button data-tier="Ultra-Rare" onclick="filterCodex('Ultra-Rare')" class="codex-filter px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-purple-300 hover:text-white transition-all">Ultra-Rare (5)</button>
+        <button data-tier="Rare" onclick="filterCodex('Rare')" class="codex-filter px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-cyan-300 hover:text-white transition-all">Rare (7)</button>
+        <button data-tier="Standard" onclick="filterCodex('Standard')" class="codex-filter px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-gray-300 hover:text-white transition-all">Standard (11)</button>
       </div>
     </div>
 
@@ -541,7 +563,16 @@
       <div class="grid grid-cols-1 sm:grid-cols-12 gap-5 items-center">
         <!-- Video Loop Preview (5 cols) -->
         <div class="sm:col-span-5 aspect-square rounded-2xl overflow-hidden bg-black relative border border-white/10 shadow-inner">
-          <video id="modal-video" autoplay loop muted playsinline class="w-full h-full object-cover"></video>
+          <video id="modal-video" autoplay loop muted playsinline class="w-full h-full object-cover transition-all duration-300"></video>
+          <div id="modal-classified-overlay" class="hidden absolute inset-0 flex flex-col items-center justify-center p-3 text-center pointer-events-none z-10 bg-black/50 backdrop-blur-[3px]">
+            <div class="w-10 h-10 rounded-full bg-black/80 border border-ink-500/60 backdrop-blur-md flex items-center justify-center mb-2 shadow-lg">
+              <i data-lucide="eye-off" class="w-5 h-5 text-ink-cyan"></i>
+            </div>
+            <div class="px-2.5 py-0.5 rounded-full bg-ink-500/25 border border-ink-500/40 backdrop-blur-sm mb-1">
+              <span class="text-[10px] font-mono font-bold tracking-wider uppercase text-ink-cyan">Unrevealed Shader</span>
+            </div>
+            <span class="text-[9px] font-mono text-gray-400">Classified Geometry · 30% Visibility</span>
+          </div>
           <div class="absolute bottom-2 left-2 right-2 flex justify-between text-[10px] font-mono text-gray-300 bg-black/60 backdrop-blur-md px-2 py-1 rounded-md">
             <span id="modal-tier-badge" class="text-ink-cyan font-bold">Ultra-Rare</span>
             <span>Harmonic Loop</span>
@@ -625,48 +656,52 @@
     // Specimen Dataset with authentic metadata
     const specimens = [
       {
-        id: "Ink Special · 16",
+        id: "Apex Grail · 32",
         shape: "Ink",
         archetype: "Sacred Geometry",
-        tier: "Ink Special",
+        tier: "Apex Grail",
         motion: "Disciplined Static · 5.0s",
         layers: "3 Harmonic Layers",
         video: "./assets/shapes/ink.mp4",
         image: "./assets/shapes/ink.png",
-        glow: "rgba(255, 0, 115, 0.45)"
+        glow: "rgba(255, 0, 115, 0.45)",
+        isNew: false
       },
       {
-        id: "Specimen #369",
-        shape: "Particle Field",
-        archetype: "Particle Field",
-        tier: "Prime Resonance",
-        motion: "Pulse Dynamic · 6.0s",
-        layers: "7 Harmonic Layers",
-        video: "./assets/aura_1.webm",
-        image: "./assets/aura_1.png",
-        glow: "rgba(112, 56, 255, 0.4)"
+        id: "Apex Grail · 16 · 🔒 Classified",
+        shape: "ApexMorph",
+        archetype: "Quantum Singularity",
+        tier: "Apex Grail",
+        motion: "Pulse Dynamic · 5.0s",
+        layers: "36K Point Lattice",
+        video: "./assets/shapes/apexmorph.mp4",
+        image: "./assets/shapes/apexmorph.png",
+        glow: "rgba(112, 56, 255, 0.45)",
+        isNew: true
       },
       {
-        id: "Specimen #432",
-        shape: "Circuit Lattice",
-        archetype: "Circuit Lattice",
-        tier: "Select Resonance",
-        motion: "Counter Spin · 6.0s",
-        layers: "7 Harmonic Layers",
-        video: "./assets/aura_2.webm",
-        image: "./assets/aura_2.png",
-        glow: "rgba(0, 242, 254, 0.35)"
+        id: "Rare · 128 · 🔒 Classified",
+        shape: "CurlVortex",
+        archetype: "Harmonic Resonance",
+        tier: "Rare",
+        motion: "Celestial Drift · 4.0s",
+        layers: "Multi-Axis Stream",
+        video: "./assets/shapes/curlvortex.mp4",
+        image: "./assets/shapes/curlvortex.png",
+        glow: "rgba(0, 242, 254, 0.4)",
+        isNew: true
       },
       {
-        id: "Specimen #888",
-        shape: "Torus Knot",
-        archetype: "Torus Knot",
-        tier: "Super-Rare",
-        motion: "Counter Spin · 6.0s",
-        layers: "7 Harmonic Layers",
-        video: "./assets/aura_3.webm",
-        image: "./assets/aura_3.png",
-        glow: "rgba(147, 51, 234, 0.4)"
+        id: "Apex Grail · 32",
+        shape: "Kraken",
+        archetype: "Sacred Geometry",
+        tier: "Apex Grail",
+        motion: "Disciplined Static · 4.0s",
+        layers: "5 Harmonic Layers",
+        video: "./assets/shapes/kraken.mp4",
+        image: "./assets/shapes/kraken.png",
+        glow: "rgba(16, 185, 129, 0.45)",
+        isNew: false
       }
     ];
 
@@ -704,6 +739,18 @@
         videoSource.src = spec.video;
         fallbackImg.src = spec.image;
         video.poster = spec.image;
+
+        const overlay = document.getElementById('hero-classified-overlay');
+        if (spec.isNew) {
+          video.style.filter = 'blur(24px) opacity(0.30)';
+          video.style.transform = 'scale(1.12)';
+          if (overlay) overlay.classList.remove('hidden');
+        } else {
+          video.style.filter = '';
+          video.style.transform = '';
+          if (overlay) overlay.classList.add('hidden');
+        }
+
         video.load();
         video.play().catch(() => {});
         video.style.opacity = '1';
@@ -714,6 +761,7 @@
         hudMotion.textContent = spec.motion;
         hudLayers.textContent = spec.layers;
         stageGlow.style.backgroundColor = spec.glow;
+        lucide.createIcons();
       }, 200);
     }
 
@@ -814,292 +862,318 @@
   <!-- SHAPE CODEX & SHARE SCRIPT -->
   <script>
     const SHAPES_DATA = [
-    {
-        "shape": "QuantumMembrane",
-        "id": 7,
-        "tier": "Apex Grail",
-        "palette": "Bitcoin",
-        "archetype": "Quantum Singularity",
-        "motion": "Quantum Dynamics",
-        "mp4": "./assets/shapes/quantummembrane.mp4",
-        "png": "./assets/shapes/quantummembrane.png",
-        "supply": 32
-    },
-    {
-        "shape": "SunConnections",
-        "id": 2694,
-        "tier": "Apex Grail",
-        "palette": "Gold",
-        "archetype": "Quantum Singularity",
-        "motion": "Quantum Dynamics",
-        "mp4": "./assets/shapes/sunconnections.mp4",
-        "png": "./assets/shapes/sunconnections.png",
-        "supply": 32
-    },
-    {
-        "shape": "TorsionRibbon",
-        "id": 12,
-        "tier": "Apex Grail",
-        "palette": "Gold",
-        "archetype": "Dimensional Vortex",
-        "motion": "Mixed Synthesis",
-        "mp4": "./assets/shapes/torsionribbon.mp4",
-        "png": "./assets/shapes/torsionribbon.png",
-        "supply": 32
-    },
-    {
-        "shape": "VortexPortal",
-        "id": 23,
-        "tier": "Apex Grail",
-        "palette": "Luminescence",
-        "archetype": "Dimensional Vortex",
-        "motion": "Mixed Synthesis",
-        "mp4": "./assets/shapes/vortexportal.mp4",
-        "png": "./assets/shapes/vortexportal.png",
-        "supply": 32
-    },
-    {
-        "shape": "Ink",
-        "id": 10,
-        "tier": "Ink Special",
-        "palette": "Ink",
-        "archetype": "Sacred Geometry",
-        "motion": "Disciplined Static",
-        "mp4": "./assets/shapes/ink.mp4",
-        "png": "./assets/shapes/ink.png",
-        "supply": 16
-    },
-    {
-        "shape": "Kraken",
-        "id": 823,
-        "tier": "Ink Special",
-        "palette": "Kraken",
-        "archetype": "Sacred Geometry",
-        "motion": "Disciplined Static",
-        "mp4": "./assets/shapes/kraken.mp4",
-        "png": "./assets/shapes/kraken.png",
-        "supply": 16
-    },
-    {
-        "shape": "HilbertCurve",
-        "id": 1590,
-        "tier": "Super-Rare",
-        "palette": "Luminescence",
-        "archetype": "Sacred Geometry",
-        "motion": "Counter Spin",
-        "mp4": "./assets/shapes/hilbertcurve.mp4",
-        "png": "./assets/shapes/hilbertcurve.png",
-        "supply": 64
-    },
-    {
-        "shape": "Spiral",
-        "id": 2,
-        "tier": "Super-Rare",
-        "palette": "Bitcoin",
-        "archetype": "Dimensional Vortex",
-        "motion": "Counter Spin",
-        "mp4": "./assets/shapes/spiral.mp4",
-        "png": "./assets/shapes/spiral.png",
-        "supply": 64
-    },
-    {
-        "shape": "CircuitMatrix",
-        "id": 11,
-        "tier": "Rare",
-        "palette": "Ethereum",
-        "archetype": "Cybernetic Grid",
-        "motion": "Hyperfluid Wave",
-        "mp4": "./assets/shapes/circuitmatrix.mp4",
-        "png": "./assets/shapes/circuitmatrix.png",
-        "supply": 128
-    },
-    {
-        "shape": "CrystalPrism",
-        "id": 44,
-        "tier": "Rare",
-        "palette": "Bitcoin",
-        "archetype": "Sacred Geometry",
-        "motion": "Disciplined Static",
-        "mp4": "./assets/shapes/crystalprism.mp4",
-        "png": "./assets/shapes/crystalprism.png",
-        "supply": 128
-    },
-    {
-        "shape": "Holographic",
-        "id": 35,
-        "tier": "Rare",
-        "palette": "Ethereum",
-        "archetype": "Quantum Singularity",
-        "motion": "Celestial Drift",
-        "mp4": "./assets/shapes/holographic.mp4",
-        "png": "./assets/shapes/holographic.png",
-        "supply": 128
-    },
-    {
-        "shape": "ScatteredImpactNodes",
-        "id": 1140,
-        "tier": "Rare",
-        "palette": "Neon",
-        "archetype": "Cybernetic Grid",
-        "motion": "Hyperfluid Wave",
-        "mp4": "./assets/shapes/scatteredimpactnodes.mp4",
-        "png": "./assets/shapes/scatteredimpactnodes.png",
-        "supply": 128
-    },
-    {
-        "shape": "SpiralsSphere",
-        "id": 2959,
-        "tier": "Rare",
-        "palette": "Kraken",
-        "archetype": "Sacred Geometry",
-        "motion": "Pendulum",
-        "mp4": "./assets/shapes/spiralssphere.mp4",
-        "png": "./assets/shapes/spiralssphere.png",
-        "supply": 128
-    },
-    {
-        "shape": "TorusKnot",
-        "id": 82,
-        "tier": "Rare",
-        "palette": "Neon",
-        "archetype": "Dimensional Vortex",
-        "motion": "Celestial Drift",
-        "mp4": "./assets/shapes/torusknot.mp4",
-        "png": "./assets/shapes/torusknot.png",
-        "supply": 128
-    },
-    {
-        "shape": "Circle",
-        "id": 13,
-        "tier": "Foundation",
-        "palette": "Pepe",
-        "archetype": "Harmonic Resonance",
-        "motion": "Celestial Drift",
-        "mp4": "./assets/shapes/circle.mp4",
-        "png": "./assets/shapes/circle.png",
-        "supply": 254
-    },
-    {
-        "shape": "CircuitLattice",
-        "id": 19,
-        "tier": "Foundation",
-        "palette": "Neon",
-        "archetype": "Cybernetic Grid",
-        "motion": "Disciplined Static",
-        "mp4": "./assets/shapes/circuitlattice.mp4",
-        "png": "./assets/shapes/circuitlattice.png",
-        "supply": 253
-    },
-    {
-        "shape": "ContourBands",
-        "id": 1,
-        "tier": "Foundation",
-        "palette": "Ethereum",
-        "archetype": "Harmonic Resonance",
-        "motion": "Celestial Drift",
-        "mp4": "./assets/shapes/contourbands.mp4",
-        "png": "./assets/shapes/contourbands.png",
-        "supply": 253
-    },
-    {
-        "shape": "EnergySphere",
-        "id": 15,
-        "tier": "Foundation",
-        "palette": "Pepe",
-        "archetype": "Quantum Singularity",
-        "motion": "Pulse",
-        "mp4": "./assets/shapes/energysphere.mp4",
-        "png": "./assets/shapes/energysphere.png",
-        "supply": 253
-    },
-    {
-        "shape": "FluidSquare",
-        "id": 22,
-        "tier": "Foundation",
-        "palette": "Neon",
-        "archetype": "Harmonic Resonance",
-        "motion": "Pulse",
-        "mp4": "./assets/shapes/fluidsquare.mp4",
-        "png": "./assets/shapes/fluidsquare.png",
-        "supply": 253
-    },
-    {
-        "shape": "LissajousRing",
-        "id": 3,
-        "tier": "Foundation",
-        "palette": "Bitcoin",
-        "archetype": "Sacred Geometry",
-        "motion": "Disciplined Static",
-        "mp4": "./assets/shapes/lissajousring.mp4",
-        "png": "./assets/shapes/lissajousring.png",
-        "supply": 253
-    },
-    {
-        "shape": "MoireBands",
-        "id": 5,
-        "tier": "Foundation",
-        "palette": "Ethereum",
-        "archetype": "Cybernetic Grid",
-        "motion": "Pulse",
-        "mp4": "./assets/shapes/moirebands.mp4",
-        "png": "./assets/shapes/moirebands.png",
-        "supply": 254
-    },
-    {
-        "shape": "ParticleField",
-        "id": 17,
-        "tier": "Foundation",
-        "palette": "Ruby",
-        "archetype": "Quantum Singularity",
-        "motion": "Celestial Drift",
-        "mp4": "./assets/shapes/particlefield.mp4",
-        "png": "./assets/shapes/particlefield.png",
-        "supply": 254
-    },
-    {
-        "shape": "Portal",
-        "id": 9,
-        "tier": "Foundation",
-        "palette": "Emerald",
-        "archetype": "Dimensional Vortex",
-        "motion": "Celestial Drift",
-        "mp4": "./assets/shapes/portal.mp4",
-        "png": "./assets/shapes/portal.png",
-        "supply": 253
-    },
-    {
-        "shape": "QuantumField",
-        "id": 14,
-        "tier": "Foundation",
-        "palette": "Emerald",
-        "archetype": "Quantum Singularity",
-        "motion": "Harmonic Ease",
-        "mp4": "./assets/shapes/quantumfield.mp4",
-        "png": "./assets/shapes/quantumfield.png",
-        "supply": 253
-    },
-    {
-        "shape": "SuperHex",
-        "id": 4,
-        "tier": "Foundation",
-        "palette": "Emerald",
-        "archetype": "Sacred Geometry",
-        "motion": "Disciplined Static",
-        "mp4": "./assets/shapes/superhex.mp4",
-        "png": "./assets/shapes/superhex.png",
-        "supply": 253
-    },
-    {
-        "shape": "WaveGrid",
-        "id": 29,
-        "tier": "Foundation",
-        "palette": "Cool",
-        "archetype": "Cybernetic Grid",
-        "motion": "Celestial Drift",
-        "mp4": "./assets/shapes/wavegrid.mp4",
-        "png": "./assets/shapes/wavegrid.png",
-        "supply": 254
-    }
+  {
+    "shape": "Ink",
+    "id": 10,
+    "tier": "Apex Grail",
+    "palette": "Ink",
+    "archetype": "Sacred Geometry",
+    "motion": "Disciplined Static",
+    "mp4": "./assets/shapes/ink.mp4",
+    "png": "./assets/shapes/ink.png",
+    "supply": 32,
+    "isNew": false
+  },
+  {
+    "shape": "Kraken",
+    "id": 823,
+    "tier": "Apex Grail",
+    "palette": "Kraken",
+    "archetype": "Sacred Geometry",
+    "motion": "Disciplined Static",
+    "mp4": "./assets/shapes/kraken.mp4",
+    "png": "./assets/shapes/kraken.png",
+    "supply": 32,
+    "isNew": false
+  },
+  {
+    "shape": "ApexMorph",
+    "id": 1329,
+    "tier": "Apex Grail",
+    "palette": "Emerald",
+    "archetype": "Quantum Singularity",
+    "motion": "Pulse",
+    "mp4": "./assets/shapes/apexmorph.mp4",
+    "png": "./assets/shapes/apexmorph.png",
+    "supply": 16,
+    "isNew": true
+  },
+  {
+    "shape": "HarmonicOrbit",
+    "id": 13,
+    "tier": "Ultra-Rare",
+    "palette": "Pepe",
+    "archetype": "Harmonic Resonance",
+    "motion": "Celestial Drift",
+    "mp4": "./assets/shapes/harmonicorbit.mp4",
+    "png": "./assets/shapes/harmonicorbit.png",
+    "supply": 96,
+    "isNew": true
+  },
+  {
+    "shape": "HilbertCurve",
+    "id": 1243,
+    "tier": "Ultra-Rare",
+    "palette": "Ethereum",
+    "archetype": "Cybernetic Grid",
+    "motion": "Hyperfluid Wave",
+    "mp4": "./assets/shapes/hilbertcurve.mp4",
+    "png": "./assets/shapes/hilbertcurve.png",
+    "supply": 96,
+    "isNew": false
+  },
+  {
+    "shape": "QuantumFlux",
+    "id": 5,
+    "tier": "Ultra-Rare",
+    "palette": "Ethereum",
+    "archetype": "Cybernetic Grid",
+    "motion": "Pulse",
+    "mp4": "./assets/shapes/quantumflux.mp4",
+    "png": "./assets/shapes/quantumflux.png",
+    "supply": 96,
+    "isNew": true
+  },
+  {
+    "shape": "SunConnections",
+    "id": 1277,
+    "tier": "Ultra-Rare",
+    "palette": "Emerald",
+    "archetype": "Dimensional Vortex",
+    "motion": "Pulse",
+    "mp4": "./assets/shapes/sunconnections.mp4",
+    "png": "./assets/shapes/sunconnections.png",
+    "supply": 96,
+    "isNew": false
+  },
+  {
+    "shape": "TorsionRibbon",
+    "id": 12,
+    "tier": "Ultra-Rare",
+    "palette": "Gold",
+    "archetype": "Dimensional Vortex",
+    "motion": "Mixed Synthesis",
+    "mp4": "./assets/shapes/torsionribbon.mp4",
+    "png": "./assets/shapes/torsionribbon.png",
+    "supply": 96,
+    "isNew": false
+  },
+  {
+    "shape": "CircuitMatrix",
+    "id": 11,
+    "tier": "Rare",
+    "palette": "Ethereum",
+    "archetype": "Cybernetic Grid",
+    "motion": "Hyperfluid Wave",
+    "mp4": "./assets/shapes/circuitmatrix.mp4",
+    "png": "./assets/shapes/circuitmatrix.png",
+    "supply": 128,
+    "isNew": false
+  },
+  {
+    "shape": "CurlVortex",
+    "id": 1,
+    "tier": "Rare",
+    "palette": "Ethereum",
+    "archetype": "Harmonic Resonance",
+    "motion": "Celestial Drift",
+    "mp4": "./assets/shapes/curlvortex.mp4",
+    "png": "./assets/shapes/curlvortex.png",
+    "supply": 128,
+    "isNew": true
+  },
+  {
+    "shape": "CyberNexus",
+    "id": 19,
+    "tier": "Rare",
+    "palette": "Neon",
+    "archetype": "Cybernetic Grid",
+    "motion": "Disciplined Static",
+    "mp4": "./assets/shapes/cybernexus.mp4",
+    "png": "./assets/shapes/cybernexus.png",
+    "supply": 128,
+    "isNew": true
+  },
+  {
+    "shape": "CymaticNode",
+    "id": 1140,
+    "tier": "Rare",
+    "palette": "Neon",
+    "archetype": "Cybernetic Grid",
+    "motion": "Hyperfluid Wave",
+    "mp4": "./assets/shapes/cymaticnode.mp4",
+    "png": "./assets/shapes/cymaticnode.png",
+    "supply": 128,
+    "isNew": true
+  },
+  {
+    "shape": "SpiralsSphere",
+    "id": 1264,
+    "tier": "Rare",
+    "palette": "Kraken",
+    "archetype": "Cybernetic Grid",
+    "motion": "Pendulum",
+    "mp4": "./assets/shapes/spiralssphere.mp4",
+    "png": "./assets/shapes/spiralssphere.png",
+    "supply": 128,
+    "isNew": false
+  },
+  {
+    "shape": "StarMandala",
+    "id": 29,
+    "tier": "Rare",
+    "palette": "Cool",
+    "archetype": "Cybernetic Grid",
+    "motion": "Celestial Drift",
+    "mp4": "./assets/shapes/starmandala.mp4",
+    "png": "./assets/shapes/starmandala.png",
+    "supply": 128,
+    "isNew": true
+  },
+  {
+    "shape": "TorusKnot",
+    "id": 82,
+    "tier": "Rare",
+    "palette": "Neon",
+    "archetype": "Dimensional Vortex",
+    "motion": "Celestial Drift",
+    "mp4": "./assets/shapes/torusknot.mp4",
+    "png": "./assets/shapes/torusknot.png",
+    "supply": 128,
+    "isNew": false
+  },
+  {
+    "shape": "CrystalPrism",
+    "id": 44,
+    "tier": "Standard",
+    "palette": "Bitcoin",
+    "archetype": "Sacred Geometry",
+    "motion": "Disciplined Static",
+    "mp4": "./assets/shapes/crystalprism.mp4",
+    "png": "./assets/shapes/crystalprism.png",
+    "supply": 240,
+    "isNew": false
+  },
+  {
+    "shape": "EnergySphere",
+    "id": 15,
+    "tier": "Standard",
+    "palette": "Pepe",
+    "archetype": "Quantum Singularity",
+    "motion": "Pulse",
+    "mp4": "./assets/shapes/energysphere.mp4",
+    "png": "./assets/shapes/energysphere.png",
+    "supply": 240,
+    "isNew": false
+  },
+  {
+    "shape": "FluidSquare",
+    "id": 22,
+    "tier": "Standard",
+    "palette": "Neon",
+    "archetype": "Harmonic Resonance",
+    "motion": "Pulse",
+    "mp4": "./assets/shapes/fluidsquare.mp4",
+    "png": "./assets/shapes/fluidsquare.png",
+    "supply": 240,
+    "isNew": false
+  },
+  {
+    "shape": "Holographic",
+    "id": 35,
+    "tier": "Standard",
+    "palette": "Ethereum",
+    "archetype": "Quantum Singularity",
+    "motion": "Celestial Drift",
+    "mp4": "./assets/shapes/holographic.mp4",
+    "png": "./assets/shapes/holographic.png",
+    "supply": 240,
+    "isNew": false
+  },
+  {
+    "shape": "LissajousRing",
+    "id": 3,
+    "tier": "Standard",
+    "palette": "Bitcoin",
+    "archetype": "Sacred Geometry",
+    "motion": "Disciplined Static",
+    "mp4": "./assets/shapes/lissajousring.mp4",
+    "png": "./assets/shapes/lissajousring.png",
+    "supply": 240,
+    "isNew": false
+  },
+  {
+    "shape": "ParticleField",
+    "id": 17,
+    "tier": "Standard",
+    "palette": "Ruby",
+    "archetype": "Quantum Singularity",
+    "motion": "Celestial Drift",
+    "mp4": "./assets/shapes/particlefield.mp4",
+    "png": "./assets/shapes/particlefield.png",
+    "supply": 240,
+    "isNew": false
+  },
+  {
+    "shape": "QuantumField",
+    "id": 14,
+    "tier": "Standard",
+    "palette": "Emerald",
+    "archetype": "Quantum Singularity",
+    "motion": "Harmonic Ease",
+    "mp4": "./assets/shapes/quantumfield.mp4",
+    "png": "./assets/shapes/quantumfield.png",
+    "supply": 240,
+    "isNew": false
+  },
+  {
+    "shape": "QuantumMembrane",
+    "id": 7,
+    "tier": "Standard",
+    "palette": "Bitcoin",
+    "archetype": "Quantum Singularity",
+    "motion": "Quantum Dynamics",
+    "mp4": "./assets/shapes/quantummembrane.mp4",
+    "png": "./assets/shapes/quantummembrane.png",
+    "supply": 240,
+    "isNew": false
+  },
+  {
+    "shape": "Spiral",
+    "id": 2,
+    "tier": "Standard",
+    "palette": "Bitcoin",
+    "archetype": "Dimensional Vortex",
+    "motion": "Counter Spin",
+    "mp4": "./assets/shapes/spiral.mp4",
+    "png": "./assets/shapes/spiral.png",
+    "supply": 240,
+    "isNew": false
+  },
+  {
+    "shape": "SuperHex",
+    "id": 4,
+    "tier": "Standard",
+    "palette": "Emerald",
+    "archetype": "Sacred Geometry",
+    "motion": "Disciplined Static",
+    "mp4": "./assets/shapes/superhex.mp4",
+    "png": "./assets/shapes/superhex.png",
+    "supply": 240,
+    "isNew": false
+  },
+  {
+    "shape": "VortexPortal",
+    "id": 9,
+    "tier": "Standard",
+    "palette": "Emerald",
+    "archetype": "Dimensional Vortex",
+    "motion": "Celestial Drift",
+    "mp4": "./assets/shapes/vortexportal.mp4",
+    "png": "./assets/shapes/vortexportal.png",
+    "supply": 240,
+    "isNew": false
+  }
 ];
 
     let currentSelectedShape = SHAPES_DATA.find(s => s.shape === 'Kraken') || SHAPES_DATA[0];
@@ -1127,13 +1201,29 @@
         let badgeColor = 'bg-white/10 text-gray-300 border-white/15';
         if (item.tier === 'Apex Grail') {
           badgeColor = 'bg-amber-500/20 text-amber-300 border-amber-500/40 shadow-sm';
-        } else if (item.tier === 'Ink Special') {
-          badgeColor = 'bg-ink-500/30 text-ink-cyan border-ink-cyan/40 shadow-sm';
-        } else if (item.tier === 'Super-Rare') {
+        } else if (item.tier === 'Ultra-Rare') {
           badgeColor = 'bg-purple-500/20 text-purple-300 border-purple-500/40 shadow-sm';
         } else if (item.tier === 'Rare') {
           badgeColor = 'bg-cyan-500/20 text-cyan-300 border-cyan-500/30';
+        } else if (item.tier === 'Standard') {
+          badgeColor = 'bg-white/10 text-gray-300 border-white/15';
         }
+
+        const blurStyle = item.isNew ? 'style="filter: blur(24px) opacity(0.30); transform: scale(1.12);"' : '';
+        const classifiedOverlay = item.isNew ? `
+          <div class="absolute inset-0 flex flex-col items-center justify-center p-3 text-center pointer-events-none z-10 bg-black/40 backdrop-blur-[3px]">
+            <div class="w-9 h-9 rounded-full bg-black/80 border border-ink-500/60 backdrop-blur-md flex items-center justify-center mb-1.5 shadow-lg group-hover:scale-110 transition-transform">
+              <i data-lucide="eye-off" class="w-4 h-4 text-ink-cyan"></i>
+            </div>
+            <div class="px-2 py-0.5 rounded-full bg-ink-500/30 border border-ink-500/50 backdrop-blur-sm mb-1">
+              <span class="text-[10px] font-mono font-bold tracking-wider uppercase text-ink-cyan">Unrevealed Shader</span>
+            </div>
+            <span class="text-[9px] font-mono text-gray-400">Classified Geometry · 30% Visibility</span>
+          </div>
+        ` : '';
+
+        const classifiedTag = item.isNew ? ' · 🔒 Classified' : '';
+        const newBadge = item.isNew ? '<span class="text-[9px] font-mono px-1.5 py-0.5 rounded bg-ink-500/30 text-ink-cyan border border-ink-500/40">NEW</span>' : '';
 
         return `
           <div class="glass-panel glass-panel-interactive rounded-2xl p-3 sm:p-3.5 flex flex-col justify-between group hover:border-ink-400/50 transition-all">
@@ -1146,19 +1236,24 @@
                 muted 
                 playsinline 
                 preload="metadata"
+                ${blurStyle}
                 onmouseenter="this.play().catch(()=>{})"
                 onmouseleave="this.pause()"
                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
               </video>
-              <span class="absolute top-2 right-2 px-2 py-0.5 rounded-md border text-[10px] font-mono font-semibold backdrop-blur-md ${badgeColor}">
-                ${item.tier} · ${item.supply}
+              ${classifiedOverlay}
+              <span class="absolute top-2 right-2 z-20 px-2 py-0.5 rounded-md border text-[10px] font-mono font-semibold backdrop-blur-md ${badgeColor}">
+                ${item.tier} · ${item.supply}${classifiedTag}
               </span>
             </div>
 
             <!-- Shape Details -->
             <div class="mb-3">
               <div class="flex items-center justify-between">
-                <h4 class="font-display font-bold text-white text-base tracking-wide">${item.shape}</h4>
+                <h4 class="font-display font-bold text-white text-base tracking-wide flex items-center gap-1.5">
+                  <span>${item.shape}</span>
+                  ${newBadge}
+                </h4>
                 <span class="text-[10px] font-mono text-ink-300">${item.motion}</span>
               </div>
               <span class="text-[11px] font-mono text-gray-400 block mt-0.5">${item.archetype}</span>
@@ -1173,6 +1268,34 @@
         `;
       }).join('');
 
+      lucide.createIcons();
+    }
+
+    function openShareModal(shapeName) {
+      const found = SHAPES_DATA.find(s => s.shape === shapeName) || SHAPES_DATA[0];
+      currentSelectedShape = found;
+
+      document.getElementById('modal-shape-title').textContent = found.shape;
+      document.getElementById('modal-tier-badge').textContent = `${found.tier} · ${found.supply} Supply`;
+
+      const vid = document.getElementById('modal-video');
+      vid.src = found.mp4;
+      vid.poster = found.png;
+      if (found.isNew) {
+        vid.style.filter = 'blur(24px) opacity(0.30)';
+        vid.style.transform = 'scale(1.12)';
+        document.getElementById('modal-classified-overlay').classList.remove('hidden');
+      } else {
+        vid.style.filter = '';
+        vid.style.transform = '';
+        document.getElementById('modal-classified-overlay').classList.add('hidden');
+      }
+      vid.load();
+      vid.play().catch(()=>{});
+
+      const modal = document.getElementById('share-modal');
+      modal.classList.remove('opacity-0', 'pointer-events-none');
+      modal.classList.add('opacity-100');
       lucide.createIcons();
     }
 

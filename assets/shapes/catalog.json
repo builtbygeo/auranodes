@@ -1,91 +1,99 @@
 [
   {
-    "shape": "QuantumMembrane",
-    "id": 7,
-    "tier": "Apex Grail",
-    "palette": "Bitcoin",
-    "archetype": "Quantum Singularity",
-    "motion": "Quantum Dynamics",
-    "mp4": "./assets/shapes/quantummembrane.mp4",
-    "png": "./assets/shapes/quantummembrane.png",
-    "supply": 32
-  },
-  {
-    "shape": "SunConnections",
-    "id": 2694,
-    "tier": "Apex Grail",
-    "palette": "Gold",
-    "archetype": "Quantum Singularity",
-    "motion": "Quantum Dynamics",
-    "mp4": "./assets/shapes/sunconnections.mp4",
-    "png": "./assets/shapes/sunconnections.png",
-    "supply": 32
-  },
-  {
-    "shape": "TorsionRibbon",
-    "id": 12,
-    "tier": "Apex Grail",
-    "palette": "Gold",
-    "archetype": "Dimensional Vortex",
-    "motion": "Mixed Synthesis",
-    "mp4": "./assets/shapes/torsionribbon.mp4",
-    "png": "./assets/shapes/torsionribbon.png",
-    "supply": 32
-  },
-  {
-    "shape": "VortexPortal",
-    "id": 23,
-    "tier": "Apex Grail",
-    "palette": "Luminescence",
-    "archetype": "Dimensional Vortex",
-    "motion": "Mixed Synthesis",
-    "mp4": "./assets/shapes/vortexportal.mp4",
-    "png": "./assets/shapes/vortexportal.png",
-    "supply": 32
-  },
-  {
     "shape": "Ink",
     "id": 10,
-    "tier": "Ink Special",
+    "tier": "Apex Grail",
     "palette": "Ink",
     "archetype": "Sacred Geometry",
     "motion": "Disciplined Static",
     "mp4": "./assets/shapes/ink.mp4",
     "png": "./assets/shapes/ink.png",
-    "supply": 16
+    "supply": 32,
+    "isNew": false
   },
   {
     "shape": "Kraken",
     "id": 823,
-    "tier": "Ink Special",
+    "tier": "Apex Grail",
     "palette": "Kraken",
     "archetype": "Sacred Geometry",
     "motion": "Disciplined Static",
     "mp4": "./assets/shapes/kraken.mp4",
     "png": "./assets/shapes/kraken.png",
-    "supply": 16
+    "supply": 32,
+    "isNew": false
+  },
+  {
+    "shape": "ApexMorph",
+    "id": 1329,
+    "tier": "Apex Grail",
+    "palette": "Emerald",
+    "archetype": "Quantum Singularity",
+    "motion": "Pulse",
+    "mp4": "./assets/shapes/apexmorph.mp4",
+    "png": "./assets/shapes/apexmorph.png",
+    "supply": 16,
+    "isNew": true
+  },
+  {
+    "shape": "HarmonicOrbit",
+    "id": 13,
+    "tier": "Ultra-Rare",
+    "palette": "Pepe",
+    "archetype": "Harmonic Resonance",
+    "motion": "Celestial Drift",
+    "mp4": "./assets/shapes/harmonicorbit.mp4",
+    "png": "./assets/shapes/harmonicorbit.png",
+    "supply": 96,
+    "isNew": true
   },
   {
     "shape": "HilbertCurve",
-    "id": 1590,
-    "tier": "Super-Rare",
-    "palette": "Luminescence",
-    "archetype": "Sacred Geometry",
-    "motion": "Counter Spin",
+    "id": 1243,
+    "tier": "Ultra-Rare",
+    "palette": "Ethereum",
+    "archetype": "Cybernetic Grid",
+    "motion": "Hyperfluid Wave",
     "mp4": "./assets/shapes/hilbertcurve.mp4",
     "png": "./assets/shapes/hilbertcurve.png",
-    "supply": 64
+    "supply": 96,
+    "isNew": false
   },
   {
-    "shape": "Spiral",
-    "id": 2,
-    "tier": "Super-Rare",
-    "palette": "Bitcoin",
+    "shape": "QuantumFlux",
+    "id": 5,
+    "tier": "Ultra-Rare",
+    "palette": "Ethereum",
+    "archetype": "Cybernetic Grid",
+    "motion": "Pulse",
+    "mp4": "./assets/shapes/quantumflux.mp4",
+    "png": "./assets/shapes/quantumflux.png",
+    "supply": 96,
+    "isNew": true
+  },
+  {
+    "shape": "SunConnections",
+    "id": 1277,
+    "tier": "Ultra-Rare",
+    "palette": "Emerald",
     "archetype": "Dimensional Vortex",
-    "motion": "Counter Spin",
-    "mp4": "./assets/shapes/spiral.mp4",
-    "png": "./assets/shapes/spiral.png",
-    "supply": 64
+    "motion": "Pulse",
+    "mp4": "./assets/shapes/sunconnections.mp4",
+    "png": "./assets/shapes/sunconnections.png",
+    "supply": 96,
+    "isNew": false
+  },
+  {
+    "shape": "TorsionRibbon",
+    "id": 12,
+    "tier": "Ultra-Rare",
+    "palette": "Gold",
+    "archetype": "Dimensional Vortex",
+    "motion": "Mixed Synthesis",
+    "mp4": "./assets/shapes/torsionribbon.mp4",
+    "png": "./assets/shapes/torsionribbon.png",
+    "supply": 96,
+    "isNew": false
   },
   {
     "shape": "CircuitMatrix",
@@ -96,51 +104,68 @@
     "motion": "Hyperfluid Wave",
     "mp4": "./assets/shapes/circuitmatrix.mp4",
     "png": "./assets/shapes/circuitmatrix.png",
-    "supply": 128
+    "supply": 128,
+    "isNew": false
   },
   {
-    "shape": "CrystalPrism",
-    "id": 44,
-    "tier": "Rare",
-    "palette": "Bitcoin",
-    "archetype": "Sacred Geometry",
-    "motion": "Disciplined Static",
-    "mp4": "./assets/shapes/crystalprism.mp4",
-    "png": "./assets/shapes/crystalprism.png",
-    "supply": 128
-  },
-  {
-    "shape": "Holographic",
-    "id": 35,
+    "shape": "CurlVortex",
+    "id": 1,
     "tier": "Rare",
     "palette": "Ethereum",
-    "archetype": "Quantum Singularity",
+    "archetype": "Harmonic Resonance",
     "motion": "Celestial Drift",
-    "mp4": "./assets/shapes/holographic.mp4",
-    "png": "./assets/shapes/holographic.png",
-    "supply": 128
+    "mp4": "./assets/shapes/curlvortex.mp4",
+    "png": "./assets/shapes/curlvortex.png",
+    "supply": 128,
+    "isNew": true
   },
   {
-    "shape": "ScatteredImpactNodes",
+    "shape": "CyberNexus",
+    "id": 19,
+    "tier": "Rare",
+    "palette": "Neon",
+    "archetype": "Cybernetic Grid",
+    "motion": "Disciplined Static",
+    "mp4": "./assets/shapes/cybernexus.mp4",
+    "png": "./assets/shapes/cybernexus.png",
+    "supply": 128,
+    "isNew": true
+  },
+  {
+    "shape": "CymaticNode",
     "id": 1140,
     "tier": "Rare",
     "palette": "Neon",
     "archetype": "Cybernetic Grid",
     "motion": "Hyperfluid Wave",
-    "mp4": "./assets/shapes/scatteredimpactnodes.mp4",
-    "png": "./assets/shapes/scatteredimpactnodes.png",
-    "supply": 128
+    "mp4": "./assets/shapes/cymaticnode.mp4",
+    "png": "./assets/shapes/cymaticnode.png",
+    "supply": 128,
+    "isNew": true
   },
   {
     "shape": "SpiralsSphere",
-    "id": 2959,
+    "id": 1264,
     "tier": "Rare",
     "palette": "Kraken",
-    "archetype": "Sacred Geometry",
+    "archetype": "Cybernetic Grid",
     "motion": "Pendulum",
     "mp4": "./assets/shapes/spiralssphere.mp4",
     "png": "./assets/shapes/spiralssphere.png",
-    "supply": 128
+    "supply": 128,
+    "isNew": false
+  },
+  {
+    "shape": "StarMandala",
+    "id": 29,
+    "tier": "Rare",
+    "palette": "Cool",
+    "archetype": "Cybernetic Grid",
+    "motion": "Celestial Drift",
+    "mp4": "./assets/shapes/starmandala.mp4",
+    "png": "./assets/shapes/starmandala.png",
+    "supply": 128,
+    "isNew": true
   },
   {
     "shape": "TorusKnot",
@@ -151,138 +176,139 @@
     "motion": "Celestial Drift",
     "mp4": "./assets/shapes/torusknot.mp4",
     "png": "./assets/shapes/torusknot.png",
-    "supply": 128
+    "supply": 128,
+    "isNew": false
   },
   {
-    "shape": "Circle",
-    "id": 13,
-    "tier": "Foundation",
-    "palette": "Pepe",
-    "archetype": "Harmonic Resonance",
-    "motion": "Celestial Drift",
-    "mp4": "./assets/shapes/circle.mp4",
-    "png": "./assets/shapes/circle.png",
-    "supply": 254
-  },
-  {
-    "shape": "CircuitLattice",
-    "id": 19,
-    "tier": "Foundation",
-    "palette": "Neon",
-    "archetype": "Cybernetic Grid",
+    "shape": "CrystalPrism",
+    "id": 44,
+    "tier": "Standard",
+    "palette": "Bitcoin",
+    "archetype": "Sacred Geometry",
     "motion": "Disciplined Static",
-    "mp4": "./assets/shapes/circuitlattice.mp4",
-    "png": "./assets/shapes/circuitlattice.png",
-    "supply": 253
-  },
-  {
-    "shape": "ContourBands",
-    "id": 1,
-    "tier": "Foundation",
-    "palette": "Ethereum",
-    "archetype": "Harmonic Resonance",
-    "motion": "Celestial Drift",
-    "mp4": "./assets/shapes/contourbands.mp4",
-    "png": "./assets/shapes/contourbands.png",
-    "supply": 253
+    "mp4": "./assets/shapes/crystalprism.mp4",
+    "png": "./assets/shapes/crystalprism.png",
+    "supply": 240,
+    "isNew": false
   },
   {
     "shape": "EnergySphere",
     "id": 15,
-    "tier": "Foundation",
+    "tier": "Standard",
     "palette": "Pepe",
     "archetype": "Quantum Singularity",
     "motion": "Pulse",
     "mp4": "./assets/shapes/energysphere.mp4",
     "png": "./assets/shapes/energysphere.png",
-    "supply": 253
+    "supply": 240,
+    "isNew": false
   },
   {
     "shape": "FluidSquare",
     "id": 22,
-    "tier": "Foundation",
+    "tier": "Standard",
     "palette": "Neon",
     "archetype": "Harmonic Resonance",
     "motion": "Pulse",
     "mp4": "./assets/shapes/fluidsquare.mp4",
     "png": "./assets/shapes/fluidsquare.png",
-    "supply": 253
+    "supply": 240,
+    "isNew": false
+  },
+  {
+    "shape": "Holographic",
+    "id": 35,
+    "tier": "Standard",
+    "palette": "Ethereum",
+    "archetype": "Quantum Singularity",
+    "motion": "Celestial Drift",
+    "mp4": "./assets/shapes/holographic.mp4",
+    "png": "./assets/shapes/holographic.png",
+    "supply": 240,
+    "isNew": false
   },
   {
     "shape": "LissajousRing",
     "id": 3,
-    "tier": "Foundation",
+    "tier": "Standard",
     "palette": "Bitcoin",
     "archetype": "Sacred Geometry",
     "motion": "Disciplined Static",
     "mp4": "./assets/shapes/lissajousring.mp4",
     "png": "./assets/shapes/lissajousring.png",
-    "supply": 253
-  },
-  {
-    "shape": "MoireBands",
-    "id": 5,
-    "tier": "Foundation",
-    "palette": "Ethereum",
-    "archetype": "Cybernetic Grid",
-    "motion": "Pulse",
-    "mp4": "./assets/shapes/moirebands.mp4",
-    "png": "./assets/shapes/moirebands.png",
-    "supply": 254
+    "supply": 240,
+    "isNew": false
   },
   {
     "shape": "ParticleField",
     "id": 17,
-    "tier": "Foundation",
+    "tier": "Standard",
     "palette": "Ruby",
     "archetype": "Quantum Singularity",
     "motion": "Celestial Drift",
     "mp4": "./assets/shapes/particlefield.mp4",
     "png": "./assets/shapes/particlefield.png",
-    "supply": 254
-  },
-  {
-    "shape": "Portal",
-    "id": 9,
-    "tier": "Foundation",
-    "palette": "Emerald",
-    "archetype": "Dimensional Vortex",
-    "motion": "Celestial Drift",
-    "mp4": "./assets/shapes/portal.mp4",
-    "png": "./assets/shapes/portal.png",
-    "supply": 253
+    "supply": 240,
+    "isNew": false
   },
   {
     "shape": "QuantumField",
     "id": 14,
-    "tier": "Foundation",
+    "tier": "Standard",
     "palette": "Emerald",
     "archetype": "Quantum Singularity",
     "motion": "Harmonic Ease",
     "mp4": "./assets/shapes/quantumfield.mp4",
     "png": "./assets/shapes/quantumfield.png",
-    "supply": 253
+    "supply": 240,
+    "isNew": false
+  },
+  {
+    "shape": "QuantumMembrane",
+    "id": 7,
+    "tier": "Standard",
+    "palette": "Bitcoin",
+    "archetype": "Quantum Singularity",
+    "motion": "Quantum Dynamics",
+    "mp4": "./assets/shapes/quantummembrane.mp4",
+    "png": "./assets/shapes/quantummembrane.png",
+    "supply": 240,
+    "isNew": false
+  },
+  {
+    "shape": "Spiral",
+    "id": 2,
+    "tier": "Standard",
+    "palette": "Bitcoin",
+    "archetype": "Dimensional Vortex",
+    "motion": "Counter Spin",
+    "mp4": "./assets/shapes/spiral.mp4",
+    "png": "./assets/shapes/spiral.png",
+    "supply": 240,
+    "isNew": false
   },
   {
     "shape": "SuperHex",
     "id": 4,
-    "tier": "Foundation",
+    "tier": "Standard",
     "palette": "Emerald",
     "archetype": "Sacred Geometry",
     "motion": "Disciplined Static",
     "mp4": "./assets/shapes/superhex.mp4",
     "png": "./assets/shapes/superhex.png",
-    "supply": 253
+    "supply": 240,
+    "isNew": false
   },
   {
-    "shape": "WaveGrid",
-    "id": 29,
-    "tier": "Foundation",
-    "palette": "Cool",
-    "archetype": "Cybernetic Grid",
+    "shape": "VortexPortal",
+    "id": 9,
+    "tier": "Standard",
+    "palette": "Emerald",
+    "archetype": "Dimensional Vortex",
     "motion": "Celestial Drift",
-    "mp4": "./assets/shapes/wavegrid.mp4",
-    "png": "./assets/shapes/wavegrid.png",
-    "supply": 254
+    "mp4": "./assets/shapes/vortexportal.mp4",
+    "png": "./assets/shapes/vortexportal.png",
+    "supply": 240,
+    "isNew": false
   }
 ]
