@@ -426,29 +426,29 @@
                 </div>
               </button>
 
-              <!-- Tab 2: ApexMorph (Unrevealed Shader) -->
+              <!-- Tab 2: QuantumFlux (Unrevealed Teaser) -->
               <button onclick="selectNode(1)" id="node-btn-1" 
                       class="node-tab group relative rounded-xl p-1 bg-white/[0.03] hover:bg-ink-500/20 border-2 border-transparent hover:border-white/20 transition-all text-left flex flex-col gap-1">
                 <div class="w-full aspect-square rounded-lg overflow-hidden relative bg-black">
-                  <img src="./assets/shapes/apexmorph.png" alt="ApexMorph · 16" style="filter: blur(8px) opacity(0.35); transform: scale(1.15);" class="w-full h-full object-cover group-hover:scale-125 transition-transform duration-300">
+                  <img src="./assets/shapes/quantumflux.png" alt="QuantumFlux · 96" style="filter: blur(8px) opacity(0.35); transform: scale(1.15);" class="w-full h-full object-cover group-hover:scale-125 transition-transform duration-300">
                   <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
-                    <span class="px-1 py-0.5 rounded bg-black/75 border border-ink-500/50 text-[8px] font-mono font-bold text-ink-cyan flex items-center gap-0.5">
+                    <span class="px-1 py-0.5 rounded bg-black/75 border border-ink-500/50 text-[8px] font-mono font-bold text-purple-300 flex items-center gap-0.5">
                       <i data-lucide="eye-off" class="w-2.5 h-2.5"></i>
                       <span>30%</span>
                     </span>
                   </div>
                 </div>
                 <div class="px-1 flex flex-col sm:flex-row justify-between sm:items-center gap-0.5">
-                  <span class="text-[11px] font-mono font-bold text-gray-300">#16</span>
-                  <span class="text-[9px] font-mono text-ink-cyan truncate">ApexMorph</span>
+                  <span class="text-[11px] font-mono font-bold text-gray-300">#96</span>
+                  <span class="text-[9px] font-mono text-purple-300 truncate">QuantumFlux</span>
                 </div>
               </button>
 
-              <!-- Tab 3: CurlVortex (Unrevealed Shader) -->
+              <!-- Tab 3: StarMandala (Unrevealed Teaser) -->
               <button onclick="selectNode(2)" id="node-btn-2" 
                       class="node-tab group relative rounded-xl p-1 bg-white/[0.03] hover:bg-ink-500/20 border-2 border-transparent hover:border-white/20 transition-all text-left flex flex-col gap-1">
                 <div class="w-full aspect-square rounded-lg overflow-hidden relative bg-black">
-                  <img src="./assets/shapes/curlvortex.png" alt="CurlVortex · 128" style="filter: blur(8px) opacity(0.35); transform: scale(1.15);" class="w-full h-full object-cover group-hover:scale-125 transition-transform duration-300">
+                  <img src="./assets/shapes/starmandala.png" alt="StarMandala · 128" style="filter: blur(8px) opacity(0.35); transform: scale(1.15);" class="w-full h-full object-cover group-hover:scale-125 transition-transform duration-300">
                   <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
                     <span class="px-1 py-0.5 rounded bg-black/75 border border-ink-500/50 text-[8px] font-mono font-bold text-cyan-300 flex items-center gap-0.5">
                       <i data-lucide="eye-off" class="w-2.5 h-2.5"></i>
@@ -458,7 +458,7 @@
                 </div>
                 <div class="px-1 flex flex-col sm:flex-row justify-between sm:items-center gap-0.5">
                   <span class="text-[11px] font-mono font-bold text-gray-300">#128</span>
-                  <span class="text-[9px] font-mono text-cyan-300 truncate">CurlVortex</span>
+                  <span class="text-[9px] font-mono text-cyan-300 truncate">StarMandala</span>
                 </div>
               </button>
 
@@ -668,26 +668,26 @@
         isNew: false
       },
       {
-        id: "Apex Grail · 16 · 🔒 Classified",
-        shape: "ApexMorph",
-        archetype: "Quantum Singularity",
-        tier: "Apex Grail",
-        motion: "Pulse Dynamic · 5.0s",
-        layers: "36K Point Lattice",
-        video: "./assets/shapes/apexmorph.mp4",
-        image: "./assets/shapes/apexmorph.png",
-        glow: "rgba(112, 56, 255, 0.45)",
+        id: "Ultra-Rare · 96 · 🔒 Classified",
+        shape: "QuantumFlux",
+        archetype: "Cybernetic Grid",
+        tier: "Ultra-Rare",
+        motion: "Pulse Dynamic · 6.0s",
+        layers: "Quantum Flux Dynamic",
+        video: "./assets/shapes/quantumflux.mp4",
+        image: "./assets/shapes/quantumflux.png",
+        glow: "rgba(168, 85, 247, 0.45)",
         isNew: true
       },
       {
         id: "Rare · 128 · 🔒 Classified",
-        shape: "CurlVortex",
-        archetype: "Harmonic Resonance",
+        shape: "StarMandala",
+        archetype: "Cybernetic Grid",
         tier: "Rare",
-        motion: "Celestial Drift · 4.0s",
-        layers: "Multi-Axis Stream",
-        video: "./assets/shapes/curlvortex.mp4",
-        image: "./assets/shapes/curlvortex.png",
+        motion: "Celestial Drift · 6.0s",
+        layers: "Star Mandala Core",
+        video: "./assets/shapes/starmandala.mp4",
+        image: "./assets/shapes/starmandala.png",
         glow: "rgba(0, 242, 254, 0.4)",
         isNew: true
       },
@@ -1225,6 +1225,26 @@
         const classifiedTag = item.isNew ? ' · 🔒 Classified' : '';
         const newBadge = item.isNew ? '<span class="text-[9px] font-mono px-1.5 py-0.5 rounded bg-ink-500/30 text-ink-cyan border border-ink-500/40">NEW</span>' : '';
 
+        // Allowed to flex: All legacy shapes + only QuantumFlux and StarMandala for unrevealed teaser
+        const isLocked = item.isNew && item.shape !== 'QuantumFlux' && item.shape !== 'StarMandala';
+
+        let buttonHtml = '';
+        if (isLocked) {
+          buttonHtml = `
+            <button disabled class="w-full py-2 px-3 rounded-xl bg-white/[0.02] border border-white/5 text-gray-500 font-mono text-xs font-semibold flex items-center justify-center gap-1.5 cursor-not-allowed opacity-50" title="Locked until official reveal">
+              <i data-lucide="lock" class="w-3.5 h-3.5 text-gray-500"></i>
+              <span>Locked · Reveal Pending</span>
+            </button>
+          `;
+        } else {
+          buttonHtml = `
+            <button onclick="openShareModal('${item.shape}')" class="w-full py-2 px-3 rounded-xl bg-white/[0.04] hover:bg-gradient-to-r hover:from-ink-500 hover:to-ink-400 border border-white/10 hover:border-transparent text-gray-200 hover:text-white font-mono text-xs font-semibold flex items-center justify-center gap-1.5 transition-all shadow-sm active:scale-95 group/btn">
+              <i data-lucide="twitter" class="w-3.5 h-3.5 text-ink-cyan group-hover/btn:text-white"></i>
+              <span>Flex on X</span>
+            </button>
+          `;
+        }
+
         return `
           <div class="glass-panel glass-panel-interactive rounded-2xl p-3 sm:p-3.5 flex flex-col justify-between group hover:border-ink-400/50 transition-all">
             <!-- Media Container with Hover Play -->
@@ -1259,11 +1279,8 @@
               <span class="text-[11px] font-mono text-gray-400 block mt-0.5">${item.archetype}</span>
             </div>
 
-            <!-- Share Button -->
-            <button onclick="openShareModal('${item.shape}')" class="w-full py-2 px-3 rounded-xl bg-white/[0.04] hover:bg-gradient-to-r hover:from-ink-500 hover:to-ink-400 border border-white/10 hover:border-transparent text-gray-200 hover:text-white font-mono text-xs font-semibold flex items-center justify-center gap-1.5 transition-all shadow-sm active:scale-95 group/btn">
-              <i data-lucide="twitter" class="w-3.5 h-3.5 text-ink-cyan group-hover/btn:text-white"></i>
-              <span>Flex on X</span>
-            </button>
+            <!-- Share Button or Locked State -->
+            ${buttonHtml}
           </div>
         `;
       }).join('');
@@ -1273,6 +1290,12 @@
 
     function openShareModal(shapeName) {
       const found = SHAPES_DATA.find(s => s.shape === shapeName) || SHAPES_DATA[0];
+      
+      // Strict Guard: If it's a locked unrevealed shape, reject modal opening
+      if (found.isNew && found.shape !== 'QuantumFlux' && found.shape !== 'StarMandala') {
+        return;
+      }
+
       currentSelectedShape = found;
 
       document.getElementById('modal-shape-title').textContent = found.shape;
@@ -1290,44 +1313,6 @@
         vid.style.transform = '';
         document.getElementById('modal-classified-overlay').classList.add('hidden');
       }
-      vid.load();
-      vid.play().catch(()=>{});
-
-      const modal = document.getElementById('share-modal');
-      modal.classList.remove('opacity-0', 'pointer-events-none');
-      modal.classList.add('opacity-100');
-      lucide.createIcons();
-    }
-
-    function filterCodex(tier) {
-      activeFilter = tier;
-      document.querySelectorAll('.codex-filter').forEach(btn => {
-        if (btn.getAttribute('data-tier') === tier) {
-          btn.classList.add('bg-ink-500', 'text-white', 'font-semibold');
-          btn.classList.remove('bg-white/5');
-        } else {
-          btn.classList.remove('bg-ink-500', 'text-white', 'font-semibold');
-          btn.classList.add('bg-white/5');
-        }
-      });
-      renderCodex();
-    }
-
-    function handleSearch(q) {
-      searchQuery = q;
-      renderCodex();
-    }
-
-    function openShareModal(shapeName) {
-      const found = SHAPES_DATA.find(s => s.shape === shapeName) || SHAPES_DATA[0];
-      currentSelectedShape = found;
-
-      document.getElementById('modal-shape-title').textContent = found.shape;
-      document.getElementById('modal-tier-badge').textContent = `${found.tier} · ${found.supply} Supply`;
-
-      const vid = document.getElementById('modal-video');
-      vid.src = found.mp4;
-      vid.poster = found.png;
       vid.load();
       vid.play().catch(()=>{});
 
